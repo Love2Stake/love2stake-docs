@@ -17,7 +17,27 @@
 const sidebars = {
   // Manually defined sidebar structure
   guideSidebar: [
-    'getting-started/overview',
+    {
+      type: 'category',
+      label: 'Getting started',
+      items: [
+        'getting-started/overview',
+        'getting-started/installation',
+        // Add more getting started docs here
+      ],
+      collapsed: false,
+    },
+    {
+      type: 'category',
+      label: 'Ethereum: ETH',
+      items: [
+        'ethereum-eth/introduction',
+        'ethereum-eth/node-setup',
+        'ethereum-eth/staking-basics',
+        'ethereum-eth/smart-contracts',
+      ],
+      collapsed: false,
+    },
     {
       type: 'category',
       label: 'Cardano: ADA',
@@ -26,6 +46,4 @@ const sidebars = {
       ],
     },
   ],
-};
-
-export default sidebars;
+};export default sidebars;

@@ -10,9 +10,8 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'Love2Stake',
+  favicon: 'img/love2stake.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -51,8 +50,8 @@ const config = {
           routeBasePath: '/', // <-- Add this line
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
@@ -62,8 +61,8 @@ const config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -83,57 +82,30 @@ const config = {
       navbar: {
         title: 'Love2Stake',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Love2Stake Logo',
+          src: 'img/love2stake.svg',
         },
         items: [
           {
-            label: 'Guide',
-            to: '/', // <-- Change this line
+            label: 'Documentation',
+            to: '/',
             position: 'left',
-          }
-        ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Guide',
-            items: [
-              {
-                label: 'Guide',
-                to: '/',
-              },
-            ],
           },
           {
-            title: 'Community',
+            label: 'Networks',
+            position: 'left',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Ethereum (ETH)',
+                to: '/ethereum-eth/introduction',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: 'Cardano (ADA)',
+                to: '/cardano-ada/introduction',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Love2Stake.com`,
       },
       prism: {
         theme: prismThemes.github,

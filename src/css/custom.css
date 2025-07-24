@@ -15,7 +15,19 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  /* Documentation-style web fonts (similar to CoinCashew) */
+  --ifm-font-family-base: "Inter", "Roboto", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  --ifm-font-family-monospace: "JetBrains Mono", "Fira Code", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
+  
+  /* Override menu hover effects completely */
+  --ifm-menu-color-background-hover: transparent;
+  --ifm-menu-color-background-active: transparent;
+  --ifm-hover-overlay: transparent;
 }
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
@@ -27,4 +39,623 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  /* Override menu hover effects completely for dark mode */
+  --ifm-menu-color-background-hover: transparent;
+  --ifm-menu-color-background-active: transparent;
+  --ifm-hover-overlay: transparent;
 }
+
+/* CoinCashew-inspired Tree View Sidebar Styling */
+
+/* Main sidebar container with independent scrolling */
+.theme-doc-sidebar-container {
+  --tree-line-color: #e0e6ed;
+  --tree-node-color: #8a94a6;
+  --tree-folder-color: #405061;
+  --tree-active-bg: #f0f9ff;
+  --tree-active-color: var(--ifm-color-primary);
+  --tree-hover-bg: #f6f8fa;
+  width: 320px !important;
+  flex: 0 0 320px !important;
+  height: calc(100vh - var(--ifm-navbar-height)) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  position: sticky !important;
+  top: var(--ifm-navbar-height) !important;
+}
+
+/* Sidebar scrollbar styling */
+.theme-doc-sidebar-container::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.theme-doc-sidebar-container::-webkit-scrollbar-track {
+  background: var(--ifm-scrollbar-track-color) !important;
+}
+
+.theme-doc-sidebar-container::-webkit-scrollbar-thumb {
+  background: var(--ifm-scrollbar-thumb-color) !important;
+  border-radius: 3px !important;
+}
+
+.theme-doc-sidebar-container::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-scrollbar-thumb-hover-color) !important;
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  --tree-line-color: #30363d;
+  --tree-node-color: #7d8590;
+  --tree-folder-color: #e6edf3;
+  --tree-active-bg: rgba(46, 133, 85, 0.1);
+  --tree-active-color: var(--ifm-color-primary);
+  --tree-hover-bg: rgba(110, 118, 129, 0.1);
+}
+
+/* Root menu styling */
+.menu {
+  padding: 0.5rem !important;
+}
+
+/* Category/Folder styling */
+.menu__link--sublist {
+  position: relative !important;
+  background: transparent !important;
+  color: var(--tree-folder-color) !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 6px !important;
+  line-height: 1.4 !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: all 0.15s ease !important;
+  margin: 2px 0 !important;
+}
+
+.menu__link--sublist:hover {
+  background: var(--tree-hover-bg) !important;
+  color: var(--tree-folder-color) !important;
+}
+
+/* Regular page links */
+.menu__link {
+  position: relative !important;
+  font-size: 0.875rem !important;
+  padding: 0.4rem 0.75rem !important;
+  border-radius: 6px !important;
+  color: var(--tree-node-color) !important;
+  line-height: 1.4 !important;
+  background: transparent !important;
+  transition: all 0.15s ease !important;
+  margin: 1px 0 !important;
+}
+
+.menu__link:hover {
+  background: var(--tree-hover-bg) !important;
+  color: var(--tree-folder-color) !important;
+  text-decoration: none !important;
+}
+
+/* Active page highlighting */
+.menu__link--active {
+  background: var(--tree-active-bg) !important;
+  color: var(--tree-active-color) !important;
+  font-weight: 600 !important;
+  border-radius: 0 6px 6px 0 !important;
+  border-left: 3px solid var(--tree-active-color) !important;
+  padding-left: 1rem !important;
+}
+
+.menu__link--active:hover {
+  background: var(--tree-active-bg) !important;
+  color: var(--tree-active-color) !important;
+}
+
+/* Sidebar layout with tree structure */
+.menu__list {
+  position: relative !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin: 0 !important;
+}
+
+.menu__list-item {
+  position: relative !important;
+  margin: 0 !important;
+}
+
+/* Tree connecting lines for nested items */
+.menu__list .menu__list {
+  position: relative !important;
+  padding-left: 1rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Vertical connecting line */
+.menu__list .menu__list::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0.5rem !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 1px !important;
+  background: var(--tree-line-color) !important;
+  opacity: 0.5 !important;
+}
+
+/* Horizontal connecting lines for each nested item */
+.menu__list .menu__list .menu__list-item::before {
+  content: '' !important;
+  position: absolute !important;
+  left: -0.5rem !important;
+  top: 1rem !important;
+  width: 0.5rem !important;
+  height: 1px !important;
+  background: var(--tree-line-color) !important;
+  opacity: 0.5 !important;
+}
+
+/* Last item in nested list - shorter vertical line */
+.menu__list .menu__list .menu__list-item:last-child::after {
+  content: '' !important;
+  position: absolute !important;
+  left: -1rem !important;
+  top: 1rem !important;
+  bottom: 0 !important;
+  width: 1px !important;
+  background: var(--ifm-background-color) !important;
+  z-index: 1 !important;
+}
+
+/* Nested page styling */
+.menu__list .menu__list .menu__link {
+  padding-left: 1rem !important;
+  font-size: 0.8125rem !important;
+  color: var(--tree-node-color) !important;
+  position: relative !important;
+}
+
+.menu__list .menu__list .menu__link:hover {
+  color: var(--tree-folder-color) !important;
+  background: var(--tree-hover-bg) !important;
+}
+
+.menu__list .menu__list .menu__link--active {
+  background: var(--tree-active-bg) !important;
+  color: var(--tree-active-color) !important;
+  border-left: 2px solid var(--tree-active-color) !important;
+  border-radius: 0 6px 6px 0 !important;
+  padding-left: 0.875rem !important;
+}
+
+/* Clean up caret styling for better tree appearance */
+.menu__caret::before {
+  background: var(--tree-node-color) !important;
+  opacity: 0.6 !important;
+  transform: rotate(45deg) !important;
+  border-radius: 1px !important;
+}
+
+.menu__list-item--collapsed .menu__caret::before {
+  transform: rotate(-45deg) !important;
+}
+
+/* Hide breadcrumb navigation */
+.theme-doc-breadcrumbs {
+  display: none !important;
+}
+
+/* Add spacing to replace breadcrumb navigation */
+.theme-doc-markdown {
+  padding-top: 1.5rem !important;
+}
+
+/* Hide footer */
+footer.footer {
+  display: none !important;
+}
+
+/* Make the navbar logo bigger */
+.navbar__brand .navbar__logo {
+  height: 2.8rem !important; /* Increased from 2.5rem */
+  width: auto !important;
+}
+
+/* Make the navbar title text bigger */
+.navbar__title {
+  font-size: 1.5rem !important; /* Increased from 1.4rem */
+  font-weight: 700 !important;
+  margin-left: 0.4rem !important;
+}
+
+/* Adjust navbar height to accommodate larger logo and text */
+.navbar {
+  min-height: 4.5rem !important; /* Increased from 4rem */
+  background-color: var(--ifm-background-color) !important;
+  backdrop-filter: none !important;
+  background: var(--ifm-background-color) !important;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
+}
+
+/* Force opaque navbar in light mode */
+html[data-theme='light'] .navbar,
+html:not([data-theme]) .navbar {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Force opaque navbar in dark mode */
+html[data-theme='dark'] .navbar {
+  background-color: #1b1b1d !important;
+  background: #1b1b1d !important;
+  opacity: 1 !important;
+}
+
+/* Ensure logo is properly centered vertically */
+.navbar__brand {
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Align navbar with sidebar layout */
+.navbar__inner {
+  max-width: 1800px !important;
+  margin: 0 auto !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Position logo to align with sidebar */
+.navbar__brand {
+  width: 320px !important;
+  flex: 0 0 320px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding-right: 1rem !important;
+}
+
+/* CoinCashew-inspired main content layout */
+/* Center and constrain main content width for better readability */
+.main-wrapper {
+  max-width: 1800px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+}
+
+/* Content container improvements */
+.container {
+  max-width: 100% !important;
+}
+
+/* Main content area - wider layout for better readability */
+.theme-doc-markdown {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 2rem 3rem !important;
+}
+
+/* Improve heading typography and spacing */
+.theme-doc-markdown h1 {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: var(--ifm-heading-color) !important;
+  margin-bottom: 1.5rem !important;
+  margin-top: 0 !important;
+  text-align: center !important;
+  padding-bottom: 1rem !important;
+  border-bottom: 2px solid var(--ifm-color-emphasis-300) !important;
+}
+
+.theme-doc-markdown h2 {
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+  color: var(--ifm-heading-color) !important;
+  padding-bottom: 0.5rem !important;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
+}
+
+.theme-doc-markdown h3 {
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.8rem !important;
+  color: var(--ifm-heading-color) !important;
+}
+
+/* Improve paragraph spacing and readability */
+.theme-doc-markdown p {
+  font-size: 1.1rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 1.5rem !important;
+  color: var(--ifm-font-color-base) !important;
+}
+
+/* List styling improvements */
+.theme-doc-markdown ul,
+.theme-doc-markdown ol {
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1.5rem !important;
+  padding-left: 2rem !important;
+}
+
+.theme-doc-markdown li {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Code blocks and inline code styling */
+.theme-doc-markdown code {
+  font-size: 0.95rem !important;
+  padding: 0.2rem 0.4rem !important;
+  background: var(--ifm-color-emphasis-100) !important;
+  border-radius: 4px !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+}
+
+.theme-doc-markdown pre {
+  margin: 1.5rem 0 !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+}
+
+/* Content wrapper adjustments for wider layout */
+.docusaurus-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100vh !important;
+}
+
+.theme-doc-root {
+  display: flex !important;
+  width: 100% !important;
+  flex: 1 !important;
+}
+
+/* Main content wrapper */
+.theme-doc-wrapper {
+  flex: 1 !important;
+  max-width: calc(100% - 320px) !important;
+  min-height: calc(100vh - var(--ifm-navbar-height)) !important;
+}
+
+/* Table styling improvements */
+.theme-doc-markdown table {
+  width: 100% !important;
+  margin: 1.5rem 0 !important;
+  border-collapse: collapse !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.theme-doc-markdown th,
+.theme-doc-markdown td {
+  padding: 0.8rem 1rem !important;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
+  font-size: 1rem !important;
+}
+
+.theme-doc-markdown th {
+  background: var(--ifm-color-emphasis-100) !important;
+  font-weight: 600 !important;
+}
+
+/* Blockquote styling */
+.theme-doc-markdown blockquote {
+  border-left: 4px solid var(--ifm-color-primary) !important;
+  background: var(--ifm-color-emphasis-100) !important;
+  padding: 1rem 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  border-radius: 0 8px 8px 0 !important;
+}
+
+/* Pagination Navigation Styling */
+.pagination-nav {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  max-width: 1400px !important;
+  margin: 3rem auto 2rem auto !important;
+  padding: 0 3rem !important;
+}
+
+.pagination-nav__item {
+  flex: 1 !important;
+  max-width: 300px !important;
+  min-width: 0 !important;
+}
+
+.pagination-nav__link {
+  display: block !important;
+  padding: 1rem 1.5rem !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  background: var(--ifm-background-color) !important;
+  transition: all 0.2s ease !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary) !important;
+  background: var(--ifm-color-primary-lightest) !important;
+  text-decoration: none !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.pagination-nav__sublabel {
+  font-size: 0.85rem !important;
+  color: var(--ifm-color-emphasis-600) !important;
+  margin-bottom: 0.25rem !important;
+  font-weight: 500 !important;
+}
+
+.pagination-nav__label {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: var(--ifm-font-color-base) !important;
+  line-height: 1.4 !important;
+}
+
+/* Previous/Next specific styling */
+.pagination-nav__item--prev .pagination-nav__link {
+  text-align: left !important;
+}
+
+.pagination-nav__item--next .pagination-nav__link {
+  text-align: right !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 996px) {
+  .theme-doc-sidebar-container {
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+    top: auto !important;
+    overflow-y: visible !important;
+  }
+  
+  .theme-doc-wrapper {
+    max-width: 100% !important;
+  }
+  
+  .theme-doc-markdown {
+    max-width: 100% !important;
+    padding: 1.5rem 1rem !important;
+    margin: 0 auto !important;
+    text-align: left !important;
+  }
+  
+  .theme-doc-markdown h1 {
+    font-size: 2rem !important;
+    text-align: center !important;
+  }
+  
+  .theme-doc-markdown h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .theme-doc-markdown p,
+  .theme-doc-markdown ul,
+  .theme-doc-markdown ol {
+    font-size: 1rem !important;
+  }
+  
+  /* Fix mobile navbar to span full width */
+  .navbar {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: var(--ifm-background-color) !important;
+    background: var(--ifm-background-color) !important;
+    backdrop-filter: none !important;
+    border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
+  }
+  
+  /* Force opaque mobile navbar in light mode */
+  html[data-theme='light'] .navbar,
+  html:not([data-theme]) .navbar {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    opacity: 1 !important;
+  }
+
+  /* Force opaque mobile navbar in dark mode */
+  html[data-theme='dark'] .navbar {
+    background-color: #1b1b1d !important;
+    background: #1b1b1d !important;
+    opacity: 1 !important;
+  }
+  
+  .navbar__inner {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  
+  .navbar__brand {
+    width: auto !important;
+    flex: 1 !important;
+    padding-right: 0 !important;
+    min-width: 0 !important;
+  }
+  
+  /* Even spacing around hamburger menu */
+  .navbar__toggle {
+    margin-right: 0.75rem !important;
+    padding: 0.5rem !important;
+    margin-left: auto !important;
+  }
+  
+  /* Fix main wrapper on mobile */
+  .main-wrapper {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Ensure content spans full width on mobile */
+  .container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  
+  /* Override any desktop navbar constraints on mobile */
+  html[data-theme] .navbar__inner {
+    max-width: 100% !important;
+  }
+  
+  /* Ensure no width constraints from parent elements */
+  .docusaurus-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Mobile pagination styling */
+  .pagination-nav {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    padding: 0 1rem !important;
+    margin: 2rem auto 1.5rem auto !important;
+  }
+  
+  .pagination-nav__item {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  .pagination-nav__link {
+    padding: 0.875rem 1rem !important;
+    text-align: center !important;
+  }
+  
+  .pagination-nav__item--prev .pagination-nav__link,
+  .pagination-nav__item--next .pagination-nav__link {
+    text-align: center !important;
+  }
+  
+  .pagination-nav__sublabel {
+    font-size: 0.8rem !important;
+  }
+  
+  .pagination-nav__label {
+    font-size: 0.95rem !important;
+  }
+}
+  
