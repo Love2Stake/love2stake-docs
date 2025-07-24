@@ -498,6 +498,18 @@ html[data-theme='dark'] .navbar {
   font-weight: 500 !important;
 }
 
+/* Table of Contents Styling - Align with navigation menu */
+.table-of-contents,
+.table-of-contents__left-border {
+  top: calc(var(--ifm-navbar-height) + 2rem) !important;
+}
+
+/* Right sidebar TOC positioning */
+.theme-doc-toc-desktop {
+  position: fixed;
+  margin-top: 1.5rem !important;
+}
+
 .pagination-nav__label {
   font-size: 1rem !important;
   font-weight: 600 !important;
