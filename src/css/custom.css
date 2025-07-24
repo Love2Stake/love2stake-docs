@@ -274,10 +274,27 @@ footer.footer {
   align-items: center !important;
 }
 
+/* Align navbar with sidebar layout */
+.navbar__inner {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Position logo to align with sidebar */
+.navbar__brand {
+  width: 320px !important;
+  flex: 0 0 320px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding-right: 1rem !important;
+}
+
 /* CoinCashew-inspired main content layout */
 /* Center and constrain main content width for better readability */
 .main-wrapper {
-  max-width: 1200px !important;
+  max-width: 1400px !important;
   margin: 0 auto !important;
   padding: 0 1rem !important;
 }
@@ -289,7 +306,7 @@ footer.footer {
 
 /* Main content area - wider layout for better readability */
 .theme-doc-markdown {
-  max-width: 1000px !important;
+  max-width: 1200px !important;
   margin: 0 auto !important;
   padding: 2rem 3rem !important;
 }
@@ -303,7 +320,7 @@ footer.footer {
   margin-top: 0 !important;
   text-align: center !important;
   padding-bottom: 1rem !important;
-  border-bottom: 2px solid var(--ifm-color-primary) !important;
+  border-bottom: 2px solid var(--ifm-color-emphasis-300) !important;
 }
 
 .theme-doc-markdown h2 {
@@ -444,3 +461,4 @@ footer.footer {
     font-size: 1rem !important;
   }
 }
+  
