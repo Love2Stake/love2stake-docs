@@ -1,0 +1,8 @@
+node_modules
+build
+.cache
+.docusaurus
+.env
+.DS_Store
+yarn-error.log
+npm-debug.log
