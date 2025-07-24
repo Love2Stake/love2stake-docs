@@ -266,6 +266,7 @@ footer.footer {
 /* Adjust navbar height to accommodate larger logo and text */
 .navbar {
   min-height: 4.5rem !important; /* Increased from 4rem */
+  background-color: var(--ifm-background-color) !important;
 }
 
 /* Ensure logo is properly centered vertically */
@@ -428,6 +429,66 @@ footer.footer {
   border-radius: 0 8px 8px 0 !important;
 }
 
+/* Pagination Navigation Styling */
+.pagination-nav {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  max-width: 1200px !important;
+  margin: 3rem auto 2rem auto !important;
+  padding: 0 3rem !important;
+}
+
+.pagination-nav__item {
+  flex: 1 !important;
+  max-width: 300px !important;
+  min-width: 0 !important;
+}
+
+.pagination-nav__link {
+  display: block !important;
+  padding: 1rem 1.5rem !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  background: var(--ifm-background-color) !important;
+  transition: all 0.2s ease !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary) !important;
+  background: var(--ifm-color-primary-lightest) !important;
+  text-decoration: none !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.pagination-nav__sublabel {
+  font-size: 0.85rem !important;
+  color: var(--ifm-color-emphasis-600) !important;
+  margin-bottom: 0.25rem !important;
+  font-weight: 500 !important;
+}
+
+.pagination-nav__label {
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  color: var(--ifm-font-color-base) !important;
+  line-height: 1.4 !important;
+}
+
+/* Previous/Next specific styling */
+.pagination-nav__item--prev .pagination-nav__link {
+  text-align: left !important;
+}
+
+.pagination-nav__item--next .pagination-nav__link {
+  text-align: right !important;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 996px) {
   .theme-doc-sidebar-container {
@@ -445,10 +506,13 @@ footer.footer {
   .theme-doc-markdown {
     max-width: 100% !important;
     padding: 1.5rem 1rem !important;
+    margin: 0 auto !important;
+    text-align: left !important;
   }
   
   .theme-doc-markdown h1 {
     font-size: 2rem !important;
+    text-align: center !important;
   }
   
   .theme-doc-markdown h2 {
@@ -459,6 +523,95 @@ footer.footer {
   .theme-doc-markdown ul,
   .theme-doc-markdown ol {
     font-size: 1rem !important;
+  }
+  
+  /* Fix mobile navbar to span full width */
+  .navbar {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .navbar__inner {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  
+  .navbar__brand {
+    width: auto !important;
+    flex: 1 !important;
+    padding-right: 0 !important;
+    min-width: 0 !important;
+  }
+  
+  /* Even spacing around hamburger menu */
+  .navbar__toggle {
+    margin-right: 0.75rem !important;
+    padding: 0.5rem !important;
+    margin-left: auto !important;
+  }
+  
+  /* Fix main wrapper on mobile */
+  .main-wrapper {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Ensure content spans full width on mobile */
+  .container {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  
+  /* Override any desktop navbar constraints on mobile */
+  html[data-theme] .navbar__inner {
+    max-width: 100% !important;
+  }
+  
+  /* Ensure no width constraints from parent elements */
+  .docusaurus-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Mobile pagination styling */
+  .pagination-nav {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    padding: 0 1rem !important;
+    margin: 2rem auto 1.5rem auto !important;
+  }
+  
+  .pagination-nav__item {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  .pagination-nav__link {
+    padding: 0.875rem 1rem !important;
+    text-align: center !important;
+  }
+  
+  .pagination-nav__item--prev .pagination-nav__link,
+  .pagination-nav__item--next .pagination-nav__link {
+    text-align: center !important;
+  }
+  
+  .pagination-nav__sublabel {
+    font-size: 0.8rem !important;
+  }
+  
+  .pagination-nav__label {
+    font-size: 0.95rem !important;
   }
 }
   
