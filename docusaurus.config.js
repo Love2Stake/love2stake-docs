@@ -78,10 +78,9 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/docusaurus-social-card.jpg', // Replace image
       navbar: {
-        title: 'My Site',
+        title: 'Love2Stake',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
@@ -90,7 +89,7 @@ const config = {
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
-            position: 'left',
+            position: 'left', 
             label: 'Tutorial',
           }
         ],
