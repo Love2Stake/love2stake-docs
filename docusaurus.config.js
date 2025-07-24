@@ -94,47 +94,6 @@ const config = {
           }
         ],
       },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Guide',
-            items: [
-              {
-                label: 'Guide',
-                to: '/',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} Love2Stake.com`,
-      },
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
