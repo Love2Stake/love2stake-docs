@@ -344,9 +344,8 @@ html[data-theme='dark'] .navbar {
   color: var(--ifm-heading-color) !important;
   margin-bottom: 1.5rem !important;
   margin-top: 0 !important;
-  text-align: center !important;
+  text-align: left !important;
   padding-bottom: 1rem !important;
-  border-bottom: 2px solid var(--ifm-color-emphasis-300) !important;
 }
 
 .theme-doc-markdown h2 {
@@ -549,7 +548,7 @@ html[data-theme='dark'] .navbar {
   
   .theme-doc-markdown h1 {
     font-size: 2rem !important;
-    text-align: center !important;
+    text-align: left !important;
   }
   
   .theme-doc-markdown h2 {
