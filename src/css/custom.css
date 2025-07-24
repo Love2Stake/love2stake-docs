@@ -39,101 +39,183 @@
   --ifm-hover-overlay: transparent;
 }
 
-/* CoinCashew-inspired sidebar styling - clean and minimal */
+/* CoinCashew-inspired Tree View Sidebar Styling */
 
-/* Category links (sections) - clean and simple */
+/* Main sidebar container */
+.theme-doc-sidebar-container {
+  --tree-line-color: #e0e6ed;
+  --tree-node-color: #8a94a6;
+  --tree-folder-color: #405061;
+  --tree-active-bg: #f0f9ff;
+  --tree-active-color: var(--ifm-color-primary);
+  --tree-hover-bg: #f6f8fa;
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  --tree-line-color: #30363d;
+  --tree-node-color: #7d8590;
+  --tree-folder-color: #e6edf3;
+  --tree-active-bg: rgba(46, 133, 85, 0.1);
+  --tree-active-color: var(--ifm-color-primary);
+  --tree-hover-bg: rgba(110, 118, 129, 0.1);
+}
+
+/* Root menu styling */
+.menu {
+  padding: 0.5rem !important;
+}
+
+/* Category/Folder styling */
 .menu__link--sublist {
+  position: relative !important;
   background: transparent !important;
-  color: var(--ifm-color-emphasis-700) !important;
+  color: var(--tree-folder-color) !important;
   font-weight: 600 !important;
   font-size: 0.875rem !important;
   padding: 0.5rem 0.75rem !important;
-  border-radius: 4px !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.5px !important;
+  border-radius: 6px !important;
   line-height: 1.4 !important;
   display: flex !important;
   align-items: center !important;
-  transition: color 0.2s ease !important;
+  transition: all 0.15s ease !important;
+  margin: 2px 0 !important;
 }
 
 .menu__link--sublist:hover {
-  background: var(--ifm-color-emphasis-100) !important;
-  color: var(--ifm-color-emphasis-800) !important;
+  background: var(--tree-hover-bg) !important;
+  color: var(--tree-folder-color) !important;
 }
 
-/* Regular menu links */
+/* Regular page links */
 .menu__link {
+  position: relative !important;
   font-size: 0.875rem !important;
-  padding: 0.375rem 0.75rem !important;
-  border-radius: 4px !important;
-  color: var(--ifm-color-emphasis-700) !important;
+  padding: 0.4rem 0.75rem !important;
+  border-radius: 6px !important;
+  color: var(--tree-node-color) !important;
   line-height: 1.4 !important;
   background: transparent !important;
+  transition: all 0.15s ease !important;
+  margin: 1px 0 !important;
 }
 
 .menu__link:hover {
-  background: var(--ifm-color-emphasis-100) !important;
-  color: var(--ifm-color-emphasis-800) !important;
+  background: var(--tree-hover-bg) !important;
+  color: var(--tree-folder-color) !important;
   text-decoration: none !important;
 }
 
-/* Active page highlighting - similar to CoinCashew */
+/* Active page highlighting */
 .menu__link--active {
-  background: var(--ifm-color-primary-lightest) !important;
-  color: var(--ifm-color-primary-dark) !important;
+  background: var(--tree-active-bg) !important;
+  color: var(--tree-active-color) !important;
   font-weight: 600 !important;
-  border-radius: 4px !important;
+  border-radius: 0 6px 6px 0 !important;
+  border-left: 3px solid var(--tree-active-color) !important;
+  padding-left: 1rem !important;
 }
 
 .menu__link--active:hover {
-  background: var(--ifm-color-primary-lightest) !important;
-  color: var(--ifm-color-primary-dark) !important;
+  background: var(--tree-active-bg) !important;
+  color: var(--tree-active-color) !important;
 }
 
-/* Dark mode adjustments */
-[data-theme='dark'] .menu__link--active {
-  background: rgba(37, 194, 160, 0.1) !important;
-  color: var(--ifm-color-primary-lighter) !important;
-  border-left-color: var(--ifm-color-primary) !important;
-}
-
-[data-theme='dark'] .menu__link--active:hover {
-  background: rgba(37, 194, 160, 0.15) !important;
-  color: var(--ifm-color-primary-lighter) !important;
-}
-
-/* Sidebar layout */
+/* Sidebar layout with tree structure */
 .menu__list {
-  padding-left: 0.75rem !important;
-  padding-right: 0.75rem !important;
-}
-
-.menu__list-item {
+  position: relative !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
   margin: 0 !important;
 }
 
-/* Nested menu items */
-.menu__list .menu__list {
-  padding-left: 0 !important;
-  margin-top: 0.25rem !important;
+.menu__list-item {
+  position: relative !important;
+  margin: 0 !important;
 }
 
+/* Tree connecting lines for nested items */
+.menu__list .menu__list {
+  position: relative !important;
+  padding-left: 1rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Vertical connecting line */
+.menu__list .menu__list::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0.5rem !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 1px !important;
+  background: var(--tree-line-color) !important;
+  opacity: 0.5 !important;
+}
+
+/* Horizontal connecting lines for each nested item */
+.menu__list .menu__list .menu__list-item::before {
+  content: '' !important;
+  position: absolute !important;
+  left: -0.5rem !important;
+  top: 1rem !important;
+  width: 0.5rem !important;
+  height: 1px !important;
+  background: var(--tree-line-color) !important;
+  opacity: 0.5 !important;
+}
+
+/* Last item in nested list - shorter vertical line */
+.menu__list .menu__list .menu__list-item:last-child::after {
+  content: '' !important;
+  position: absolute !important;
+  left: -1rem !important;
+  top: 1rem !important;
+  bottom: 0 !important;
+  width: 1px !important;
+  background: var(--ifm-background-color) !important;
+  z-index: 1 !important;
+}
+
+/* Nested page styling */
 .menu__list .menu__list .menu__link {
-  padding-left: 1.5rem !important;
+  padding-left: 1rem !important;
   font-size: 0.8125rem !important;
-  color: var(--ifm-color-emphasis-600) !important;
+  color: var(--tree-node-color) !important;
+  position: relative !important;
 }
 
 .menu__list .menu__list .menu__link:hover {
-  color: var(--ifm-color-emphasis-800) !important;
+  color: var(--tree-folder-color) !important;
+  background: var(--tree-hover-bg) !important;
 }
 
-/* Clean styling without transitions */
-.menu__link {
-  transition: none !important;
+.menu__list .menu__list .menu__link--active {
+  background: var(--tree-active-bg) !important;
+  color: var(--tree-active-color) !important;
+  border-left: 2px solid var(--tree-active-color) !important;
+  border-radius: 0 6px 6px 0 !important;
+  padding-left: 0.875rem !important;
 }
 
-.menu__list-item {
-  transition: none !important;
+/* Clean up caret styling for better tree appearance */
+.menu__caret::before {
+  background: var(--tree-node-color) !important;
+  opacity: 0.6 !important;
+  transform: rotate(45deg) !important;
+  border-radius: 1px !important;
+}
+
+.menu__list-item--collapsed .menu__caret::before {
+  transform: rotate(-45deg) !important;
+}
+
+/* Hide breadcrumb navigation */
+.theme-doc-breadcrumbs {
+  display: none !important;
+}
+
+/* Add spacing to replace breadcrumb navigation */
+.theme-doc-markdown {
+  padding-top: 1.5rem !important;
 }
