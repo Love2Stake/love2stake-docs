@@ -29,12 +29,21 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Ethereum: ETH',
+      items: [
+        'ethereum-eth/introduction',
+        'ethereum-eth/node-setup',
+        'ethereum-eth/staking-basics',
+        'ethereum-eth/smart-contracts',
+      ],
+      collapsed: false,
+    },
+    {
+      type: 'category',
       label: 'Cardano: ADA',
       link: { type: 'generated-index', description: 'A guide to cardano' },
       items: [
       ],
     },
   ],
-};
-
-export default sidebars;
+};export default sidebars;

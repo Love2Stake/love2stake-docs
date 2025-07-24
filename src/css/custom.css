@@ -16,9 +16,10 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   
-  /* Override menu hover variables */
+  /* Override menu hover effects completely */
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
+  --ifm-hover-overlay: transparent;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -32,49 +33,77 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   
-  /* Override menu hover variables for dark mode */
+  /* Override menu hover effects completely for dark mode */
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
+  --ifm-hover-overlay: transparent;
 }
 
-/* Remove ALL highlight and color from sidebar category labels - comprehensive override */
-.menu__link--sublist,
-.menu__link--sublist:hover,
-.menu__link--sublist:focus,
-.menu__list-item--active > .menu__link--sublist,
-.menu__list-item--expanded > .menu__link--sublist,
-.menu__list-item > .menu__link--sublist[aria-expanded="true"] {
+/* CoinCashew-inspired sidebar styling - clean and minimal */
+
+/* Category links (sections) - clean and simple */
+.menu__link--sublist {
   background: transparent !important;
-  color: var(--ifm-color-emphasis-600) !important;
+  color: var(--ifm-color-emphasis-700) !important;
   font-weight: 600 !important;
-  box-shadow: none !important;
-  opacity: 1 !important;
-  border-left: none !important;
-  border: none !important;
+  font-size: 0.875rem !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 4px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  line-height: 1.4 !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: color 0.2s ease !important;
 }
 
-/* Remove hover effects from all menu links - comprehensive override */
-.menu__link,
-.menu__link:hover,
-.menu__link:focus,
-.menu__link:active,
-.menu__link--active,
-.menu__link--active:hover,
-.menu__list-item:hover > .menu__link,
-.menu__list-item:focus > .menu__link {
+.menu__link--sublist:hover {
+  background: var(--ifm-color-emphasis-100) !important;
+  color: var(--ifm-color-emphasis-800) !important;
+}
+
+/* Regular menu links */
+.menu__link {
+  font-size: 0.875rem !important;
+  padding: 0.375rem 0.75rem !important;
+  border-radius: 4px !important;
+  color: var(--ifm-color-emphasis-700) !important;
+  line-height: 1.4 !important;
   background: transparent !important;
-  color: inherit !important;
 }
 
-/* Highlight the currently active page */
+.menu__link:hover {
+  background: var(--ifm-color-emphasis-100) !important;
+  color: var(--ifm-color-emphasis-800) !important;
+  text-decoration: none !important;
+}
+
+/* Active page highlighting - similar to CoinCashew */
 .menu__link--active {
-  background: transparent !important;
-  color: var(--ifm-color-primary) !important;
+  background: var(--ifm-color-primary-lightest) !important;
+  color: var(--ifm-color-primary-dark) !important;
   font-weight: 600 !important;
   border-radius: 4px !important;
 }
 
-/* Sidebar styling to match Ionic docs format exactly */
+.menu__link--active:hover {
+  background: var(--ifm-color-primary-lightest) !important;
+  color: var(--ifm-color-primary-dark) !important;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .menu__link--active {
+  background: rgba(37, 194, 160, 0.1) !important;
+  color: var(--ifm-color-primary-lighter) !important;
+  border-left-color: var(--ifm-color-primary) !important;
+}
+
+[data-theme='dark'] .menu__link--active:hover {
+  background: rgba(37, 194, 160, 0.15) !important;
+  color: var(--ifm-color-primary-lighter) !important;
+}
+
+/* Sidebar layout */
 .menu__list {
   padding-left: 0.75rem !important;
   padding-right: 0.75rem !important;
@@ -84,91 +113,27 @@
   margin: 0 !important;
 }
 
-.menu__link {
-  font-size: 0.875rem !important;
-  padding: 0.375rem 0.75rem !important;
-  border-radius: 4px !important;
-  color: var(--ifm-color-emphasis-700) !important;
-  line-height: 1.4 !important;
-}
-
-/* Category styling - larger, white text */
-.menu__link--sublist {
-  font-size: 0.9rem !important;
-  font-weight: 500 !important;
-  padding: 0.5rem 0.75rem !important;
-  margin-bottom: 0 !important;
-  text-transform: none !important;
-  letter-spacing: normal !important;
-  color: var(--ifm-font-color-base) !important;
-  position: relative !important;
-  text-indent: -9999px !important;
-  overflow: hidden !important;
-  transition: all 0.2s ease !important;
-  height: auto !important;
-  min-height: auto !important;
-  box-sizing: border-box !important;
-  line-height: 1.4 !important;
-}
-
-/* Hide ALL default arrow/caret elements */
-.menu__link--sublist * {
-  display: none !important;
-}
-
-.menu__link--sublist::before {
-  content: 'Getting Started' !important;
-  text-indent: 0 !important;
-  position: absolute !important;
-  left: 0.75rem !important;
-  top: 0.5rem !important;
-  font-size: 0.9rem !important;
-  font-weight: 500 !important;
-  text-transform: none !important;
-  letter-spacing: normal !important;
-  color: var(--ifm-font-color-base) !important;
-  display: block !important;
-  line-height: 1.4 !important;
-}
-
-.menu__link--sublist::after {
-  content: '▶' !important;
-  position: absolute !important;
-  right: 0.75rem !important;
-  top: 50% !important;
-  transform: translateY(-50%);
-  font-size: 0.6rem !important;
-  color: var(--ifm-color-emphasis-600) !important;
-  transition: transform 0.3s ease;
-  display: block !important;
-}
-
-/* Multiple selectors to catch all expanded states */
-.menu__list-item--expanded > .menu__link--sublist::after,
-.menu__list-item[aria-expanded="true"] > .menu__link--sublist::after,
-.menu__link--sublist[aria-expanded="true"]::after {
-  transform: translateY(-50%) rotate(90deg);
-}
-
-/* Style child menu items - aligned with category */
+/* Nested menu items */
 .menu__list .menu__list {
   padding-left: 0 !important;
-  margin-top: 0 !important;
-  transition: all 0.2s ease !important;
-  overflow: hidden !important;
+  margin-top: 0.25rem !important;
 }
 
 .menu__list .menu__list .menu__link {
-  padding-left: 0.75rem !important;
-  padding-right: 0.75rem !important;
-  font-size: 0.875rem !important;
-  transition: all 0.2s ease !important;
-  color: var(--ifm-color-emphasis-700) !important;
-  font-weight: 400 !important;
-  line-height: 1.4 !important;
+  padding-left: 1.5rem !important;
+  font-size: 0.8125rem !important;
+  color: var(--ifm-color-emphasis-600) !important;
 }
 
-/* Smooth transitions for menu items */
+.menu__list .menu__list .menu__link:hover {
+  color: var(--ifm-color-emphasis-800) !important;
+}
+
+/* Clean styling without transitions */
+.menu__link {
+  transition: none !important;
+}
+
 .menu__list-item {
-  transition: all 0.2s ease !important;
+  transition: none !important;
 }
