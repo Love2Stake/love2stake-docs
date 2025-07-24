@@ -15,6 +15,10 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  /* Override menu hover variables */
+  --ifm-menu-color-background-hover: transparent;
+  --ifm-menu-color-background-active: transparent;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -27,6 +31,10 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  
+  /* Override menu hover variables for dark mode */
+  --ifm-menu-color-background-hover: transparent;
+  --ifm-menu-color-background-active: transparent;
 }
 
 /* Remove ALL highlight and color from sidebar category labels - comprehensive override */
@@ -37,12 +45,25 @@
 .menu__list-item--expanded > .menu__link--sublist,
 .menu__list-item > .menu__link--sublist[aria-expanded="true"] {
   background: transparent !important;
-  color: var(--ifm-menu-color) !important;
-  font-weight: var(--ifm-font-weight-regular, 400) !important;
+  color: var(--ifm-color-emphasis-600) !important;
+  font-weight: 600 !important;
   box-shadow: none !important;
   opacity: 1 !important;
   border-left: none !important;
   border: none !important;
+}
+
+/* Remove hover effects from all menu links - comprehensive override */
+.menu__link,
+.menu__link:hover,
+.menu__link:focus,
+.menu__link:active,
+.menu__link--active,
+.menu__link--active:hover,
+.menu__list-item:hover > .menu__link,
+.menu__list-item:focus > .menu__link {
+  background: transparent !important;
+  color: inherit !important;
 }
 
 /* Sidebar styling to match Ionic docs format */
@@ -62,25 +83,27 @@
 }
 
 .menu__link--sublist {
-  font-size: 0.875rem !important;
+  font-size: 0.8rem !important;
   font-weight: 600 !important;
   padding: 0.5rem 0.75rem !important;
   margin-bottom: 0.25rem !important;
   text-transform: uppercase !important;
   letter-spacing: 0.05em !important;
   color: var(--ifm-color-emphasis-600) !important;
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
 }
 
-/* Restore the category arrow but keep it neutral */
+/* Simple SVG arrow for category - positioned properly */
 .menu__link--sublist::after {
-  content: '' !important;
-  width: 0 !important;
-  height: 0 !important;
-  border: 3px solid transparent !important;
-  border-left: 5px solid var(--ifm-color-emphasis-500) !important;
-  margin-left: auto !important;
+  content: '▶' !important;
+  font-size: 0.7rem !important;
+  color: var(--ifm-color-emphasis-500) !important;
   transition: transform 0.2s ease !important;
-  display: block !important;
+  flex-shrink: 0 !important;
+  margin-left: 0.5rem !important;
 }
 
 .menu__list-item--expanded > .menu__link--sublist::after {
