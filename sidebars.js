@@ -17,7 +17,15 @@
 const sidebars = {
   // Manually defined sidebar structure
   guideSidebar: [
-    'getting-started/overview',
+    {
+      type: 'category',
+      label: 'Getting started',
+      items: [
+        'getting-started/overview',
+        // Add more getting started docs here
+      ],
+      collapsed: false,
+    },
     {
       type: 'category',
       label: 'Cardano: ADA',

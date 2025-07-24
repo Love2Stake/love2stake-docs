@@ -28,3 +28,72 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Remove ALL highlight and color from sidebar category labels - comprehensive override */
+.menu__link--sublist,
+.menu__link--sublist:hover,
+.menu__link--sublist:focus,
+.menu__list-item--active > .menu__link--sublist,
+.menu__list-item--expanded > .menu__link--sublist,
+.menu__list-item > .menu__link--sublist[aria-expanded="true"] {
+  background: transparent !important;
+  color: var(--ifm-menu-color) !important;
+  font-weight: var(--ifm-font-weight-regular, 400) !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  border-left: none !important;
+  border: none !important;
+}
+
+/* Sidebar styling to match Ionic docs format */
+.menu__list {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.menu__list-item {
+  margin: 0.25rem 0 !important;
+}
+
+.menu__link {
+  font-size: 0.875rem !important;
+  padding: 0.5rem 0.75rem !important;
+  border-radius: 6px !important;
+}
+
+.menu__link--sublist {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  padding: 0.5rem 0.75rem !important;
+  margin-bottom: 0.25rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: var(--ifm-color-emphasis-600) !important;
+}
+
+/* Restore the category arrow but keep it neutral */
+.menu__link--sublist::after {
+  content: '' !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: 3px solid transparent !important;
+  border-left: 5px solid var(--ifm-color-emphasis-500) !important;
+  margin-left: auto !important;
+  transition: transform 0.2s ease !important;
+  display: block !important;
+}
+
+.menu__list-item--expanded > .menu__link--sublist::after {
+  transform: rotate(90deg) !important;
+}
+
+/* Style child menu items */
+.menu__list .menu__list {
+  padding-left: 0.5rem !important;
+  margin-top: 0.25rem !important;
+}
+
+.menu__list .menu__list .menu__link {
+  padding-left: 1.5rem !important;
+  font-size: 0.8125rem !important;
+}
