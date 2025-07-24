@@ -24,6 +24,9 @@
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
   --ifm-hover-overlay: transparent;
+  
+  /* Fix TOC scroll offset */
+  --ifm-heading-scroll-margin-top: 100px;
 }
 
 /* Import Google Fonts */
@@ -657,5 +660,11 @@ html[data-theme='dark'] .navbar {
   .pagination-nav__label {
     font-size: 0.95rem !important;
   }
+}
+
+/* Fix TOC click offset by adding scroll margin to headings */
+h1, h2, h3, h4, h5, h6 {
+  scroll-margin-top: var(--ifm-heading-scroll-margin-top);
+  position: relative;
 }
   
