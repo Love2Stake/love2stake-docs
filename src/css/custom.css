@@ -267,6 +267,24 @@ footer.footer {
 .navbar {
   min-height: 4.5rem !important; /* Increased from 4rem */
   background-color: var(--ifm-background-color) !important;
+  backdrop-filter: none !important;
+  background: var(--ifm-background-color) !important;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
+}
+
+/* Force opaque navbar in light mode */
+html[data-theme='light'] .navbar,
+html:not([data-theme]) .navbar {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Force opaque navbar in dark mode */
+html[data-theme='dark'] .navbar {
+  background-color: #1b1b1d !important;
+  background: #1b1b1d !important;
+  opacity: 1 !important;
 }
 
 /* Ensure logo is properly centered vertically */
@@ -277,7 +295,7 @@ footer.footer {
 
 /* Align navbar with sidebar layout */
 .navbar__inner {
-  max-width: 1400px !important;
+  max-width: 1800px !important;
   margin: 0 auto !important;
   padding-left: 1rem !important;
   padding-right: 1rem !important;
@@ -295,7 +313,7 @@ footer.footer {
 /* CoinCashew-inspired main content layout */
 /* Center and constrain main content width for better readability */
 .main-wrapper {
-  max-width: 1400px !important;
+  max-width: 1800px !important;
   margin: 0 auto !important;
   padding: 0 1rem !important;
 }
@@ -307,7 +325,7 @@ footer.footer {
 
 /* Main content area - wider layout for better readability */
 .theme-doc-markdown {
-  max-width: 1200px !important;
+  max-width: 1400px !important;
   margin: 0 auto !important;
   padding: 2rem 3rem !important;
 }
@@ -435,7 +453,7 @@ footer.footer {
   justify-content: center !important;
   align-items: center !important;
   gap: 1rem !important;
-  max-width: 1200px !important;
+  max-width: 1400px !important;
   margin: 3rem auto 2rem auto !important;
   padding: 0 3rem !important;
 }
@@ -531,6 +549,25 @@ footer.footer {
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
+    background-color: var(--ifm-background-color) !important;
+    background: var(--ifm-background-color) !important;
+    backdrop-filter: none !important;
+    border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
+  }
+  
+  /* Force opaque mobile navbar in light mode */
+  html[data-theme='light'] .navbar,
+  html:not([data-theme]) .navbar {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    opacity: 1 !important;
+  }
+
+  /* Force opaque mobile navbar in dark mode */
+  html[data-theme='dark'] .navbar {
+    background-color: #1b1b1d !important;
+    background: #1b1b1d !important;
+    opacity: 1 !important;
   }
   
   .navbar__inner {
