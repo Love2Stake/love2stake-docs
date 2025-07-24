@@ -16,8 +16,8 @@
  */
 const sidebars = {
   // Manually defined sidebar structure
-  tutorialSidebar: [
-    'intro',
+  guideSidebar: [
+    'getting-started/overview',
     {
       type: 'category',
       label: 'Cardano: ADA',
@@ -26,19 +26,6 @@ const sidebars = {
       ],
     },
   ],
-
-  // But you can create a sidebar manually
-  /*
-  tutorialSidebar: [
-    'intro',
-    'hello',
-    {
-      type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
-    },
-  ],
-   */
 };
 
 export default sidebars;

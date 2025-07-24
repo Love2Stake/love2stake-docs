@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -48,6 +48,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          routeBasePath: '/', // <-- Add this line
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -78,7 +79,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/docusaurus-social-card.jpg', // Replace image
+      image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'Love2Stake',
         logo: {
@@ -87,10 +88,9 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left', 
-            label: 'Tutorial',
+            label: 'Guide',
+            to: '/', // <-- Change this line
+            position: 'left',
           }
         ],
       },
@@ -98,11 +98,11 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Guide',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Guide',
+                to: '/',
               },
             ],
           },
@@ -127,17 +127,13 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
                 label: 'GitHub',
                 href: 'https://github.com/facebook/docusaurus',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Love2Stake.com`,
       },
       prism: {
         theme: prismThemes.github,
