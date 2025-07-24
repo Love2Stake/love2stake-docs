@@ -22,6 +22,7 @@ const sidebars = {
       label: 'Getting started',
       items: [
         'getting-started/overview',
+        'getting-started/installation',
         // Add more getting started docs here
       ],
       collapsed: false,

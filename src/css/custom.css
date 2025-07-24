@@ -66,33 +66,49 @@
   color: inherit !important;
 }
 
-/* Sidebar styling to match Ionic docs format */
+/* Highlight the currently active page */
+.menu__link--active {
+  background: transparent !important;
+  color: var(--ifm-color-primary) !important;
+  font-weight: 600 !important;
+  border-radius: 4px !important;
+}
+
+/* Sidebar styling to match Ionic docs format exactly */
 .menu__list {
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
 }
 
 .menu__list-item {
-  margin: 0.25rem 0 !important;
+  margin: 0 !important;
 }
 
 .menu__link {
   font-size: 0.875rem !important;
-  padding: 0.5rem 0.75rem !important;
-  border-radius: 6px !important;
+  padding: 0.375rem 0.75rem !important;
+  border-radius: 4px !important;
+  color: var(--ifm-color-emphasis-700) !important;
+  line-height: 1.4 !important;
 }
 
+/* Category styling - larger, white text */
 .menu__link--sublist {
-  font-size: 0.8rem !important;
-  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
   padding: 0.5rem 0.75rem !important;
-  margin-bottom: 0.25rem !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  color: var(--ifm-color-emphasis-600) !important;
+  margin-bottom: 0 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  color: var(--ifm-font-color-base) !important;
   position: relative !important;
   text-indent: -9999px !important;
   overflow: hidden !important;
+  transition: all 0.2s ease !important;
+  height: auto !important;
+  min-height: auto !important;
+  box-sizing: border-box !important;
+  line-height: 1.4 !important;
 }
 
 /* Hide ALL default arrow/caret elements */
@@ -101,17 +117,18 @@
 }
 
 .menu__link--sublist::before {
-  content: 'GETTING STARTED' !important;
+  content: 'Getting Started' !important;
   text-indent: 0 !important;
   position: absolute !important;
   left: 0.75rem !important;
   top: 0.5rem !important;
-  font-size: 0.8rem !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  color: var(--ifm-color-emphasis-600) !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  color: var(--ifm-font-color-base) !important;
   display: block !important;
+  line-height: 1.4 !important;
 }
 
 .menu__link--sublist::after {
@@ -120,8 +137,8 @@
   right: 0.75rem !important;
   top: 50% !important;
   transform: translateY(-50%);
-  font-size: 0.7rem !important;
-  color: var(--ifm-color-emphasis-500) !important;
+  font-size: 0.6rem !important;
+  color: var(--ifm-color-emphasis-600) !important;
   transition: transform 0.3s ease;
   display: block !important;
 }
@@ -133,39 +150,25 @@
   transform: translateY(-50%) rotate(90deg);
 }
 
-/* Style child menu items */
+/* Style child menu items - aligned with category */
 .menu__list .menu__list {
-  padding-left: 0.5rem !important;
-  margin-top: 0.25rem !important;
-  transition: all 0.5s ease !important;
+  padding-left: 0 !important;
+  margin-top: 0 !important;
+  transition: all 0.2s ease !important;
   overflow: hidden !important;
 }
 
 .menu__list .menu__list .menu__link {
-  padding-left: 1.5rem !important;
-  font-size: 0.8125rem !important;
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
+  font-size: 0.875rem !important;
   transition: all 0.2s ease !important;
+  color: var(--ifm-color-emphasis-700) !important;
+  font-weight: 400 !important;
+  line-height: 1.4 !important;
 }
 
 /* Smooth transitions for menu items */
 .menu__list-item {
   transition: all 0.2s ease !important;
-}
-
-/* Prevent jittering during expand/collapse */
-.menu__link--sublist {
-  font-size: 0.8rem !important;
-  font-weight: 600 !important;
-  padding: 0.5rem 0.75rem !important;
-  margin-bottom: 0.25rem !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  color: var(--ifm-color-emphasis-600) !important;
-  position: relative !important;
-  text-indent: -9999px !important;
-  overflow: hidden !important;
-  transition: all 0.2s ease !important;
-  height: 2rem !important;
-  min-height: 2rem !important;
-  box-sizing: border-box !important;
 }
