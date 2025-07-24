@@ -224,3 +224,27 @@
 footer.footer {
   display: none !important;
 }
+
+/* Make the navbar logo bigger */
+.navbar__brand .navbar__logo {
+  height: 2.8rem !important; /* Increased from 2.5rem */
+  width: auto !important;
+}
+
+/* Make the navbar title text bigger */
+.navbar__title {
+  font-size: 1.5rem !important; /* Increased from 1.4rem */
+  font-weight: 700 !important;
+  margin-left: 0.4rem !important;
+}
+
+/* Adjust navbar height to accommodate larger logo and text */
+.navbar {
+  min-height: 4.5rem !important; /* Increased from 4rem */
+}
+
+/* Ensure logo is properly centered vertically */
+.navbar__brand {
+  display: flex !important;
+  align-items: center !important;
+}

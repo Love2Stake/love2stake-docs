@@ -10,9 +10,8 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'Love2Stake',
+  favicon: 'img/love2stake.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -83,8 +82,8 @@ const config = {
       navbar: {
         title: 'Love2Stake',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Love2Stake Logo',
+          src: 'img/love2stake.svg',
         },
         items: [
           {
