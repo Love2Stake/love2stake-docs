@@ -87,10 +87,24 @@ const config = {
         },
         items: [
           {
-            label: 'Guide',
-            to: '/', // <-- Change this line
+            label: 'Documentation',
+            to: '/',
             position: 'left',
-          }
+          },
+          {
+            label: 'Networks',
+            position: 'left',
+            items: [
+              {
+                label: 'Ethereum (ETH)',
+                to: '/ethereum-eth/introduction',
+              },
+              {
+                label: 'Cardano (ADA)',
+                to: '/cardano-ada/introduction',
+              },
+            ],
+          },
         ],
       },
       prism: {

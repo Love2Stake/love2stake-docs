@@ -41,7 +41,7 @@
 
 /* CoinCashew-inspired Tree View Sidebar Styling */
 
-/* Main sidebar container */
+/* Main sidebar container with independent scrolling */
 .theme-doc-sidebar-container {
   --tree-line-color: #e0e6ed;
   --tree-node-color: #8a94a6;
@@ -49,6 +49,31 @@
   --tree-active-bg: #f0f9ff;
   --tree-active-color: var(--ifm-color-primary);
   --tree-hover-bg: #f6f8fa;
+  width: 320px !important;
+  flex: 0 0 320px !important;
+  height: calc(100vh - var(--ifm-navbar-height)) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  position: sticky !important;
+  top: var(--ifm-navbar-height) !important;
+}
+
+/* Sidebar scrollbar styling */
+.theme-doc-sidebar-container::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.theme-doc-sidebar-container::-webkit-scrollbar-track {
+  background: var(--ifm-scrollbar-track-color) !important;
+}
+
+.theme-doc-sidebar-container::-webkit-scrollbar-thumb {
+  background: var(--ifm-scrollbar-thumb-color) !important;
+  border-radius: 3px !important;
+}
+
+.theme-doc-sidebar-container::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-scrollbar-thumb-hover-color) !important;
 }
 
 [data-theme='dark'] .theme-doc-sidebar-container {
@@ -247,4 +272,175 @@ footer.footer {
 .navbar__brand {
   display: flex !important;
   align-items: center !important;
+}
+
+/* CoinCashew-inspired main content layout */
+/* Center and constrain main content width for better readability */
+.main-wrapper {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+}
+
+/* Content container improvements */
+.container {
+  max-width: 100% !important;
+}
+
+/* Main content area - wider layout for better readability */
+.theme-doc-markdown {
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  padding: 2rem 3rem !important;
+}
+
+/* Improve heading typography and spacing */
+.theme-doc-markdown h1 {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  color: var(--ifm-heading-color) !important;
+  margin-bottom: 1.5rem !important;
+  margin-top: 0 !important;
+  text-align: center !important;
+  padding-bottom: 1rem !important;
+  border-bottom: 2px solid var(--ifm-color-primary) !important;
+}
+
+.theme-doc-markdown h2 {
+  font-size: 1.8rem !important;
+  font-weight: 600 !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
+  color: var(--ifm-heading-color) !important;
+  padding-bottom: 0.5rem !important;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
+}
+
+.theme-doc-markdown h3 {
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.8rem !important;
+  color: var(--ifm-heading-color) !important;
+}
+
+/* Improve paragraph spacing and readability */
+.theme-doc-markdown p {
+  font-size: 1.1rem !important;
+  line-height: 1.7 !important;
+  margin-bottom: 1.5rem !important;
+  color: var(--ifm-font-color-base) !important;
+}
+
+/* List styling improvements */
+.theme-doc-markdown ul,
+.theme-doc-markdown ol {
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1.5rem !important;
+  padding-left: 2rem !important;
+}
+
+.theme-doc-markdown li {
+  margin-bottom: 0.5rem !important;
+}
+
+/* Code blocks and inline code styling */
+.theme-doc-markdown code {
+  font-size: 0.95rem !important;
+  padding: 0.2rem 0.4rem !important;
+  background: var(--ifm-color-emphasis-100) !important;
+  border-radius: 4px !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+}
+
+.theme-doc-markdown pre {
+  margin: 1.5rem 0 !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+}
+
+/* Content wrapper adjustments for wider layout */
+.docusaurus-wrapper {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100vh !important;
+}
+
+.theme-doc-root {
+  display: flex !important;
+  width: 100% !important;
+  flex: 1 !important;
+}
+
+/* Main content wrapper */
+.theme-doc-wrapper {
+  flex: 1 !important;
+  max-width: calc(100% - 320px) !important;
+  min-height: calc(100vh - var(--ifm-navbar-height)) !important;
+}
+
+/* Table styling improvements */
+.theme-doc-markdown table {
+  width: 100% !important;
+  margin: 1.5rem 0 !important;
+  border-collapse: collapse !important;
+  border: 1px solid var(--ifm-color-emphasis-300) !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.theme-doc-markdown th,
+.theme-doc-markdown td {
+  padding: 0.8rem 1rem !important;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200) !important;
+  font-size: 1rem !important;
+}
+
+.theme-doc-markdown th {
+  background: var(--ifm-color-emphasis-100) !important;
+  font-weight: 600 !important;
+}
+
+/* Blockquote styling */
+.theme-doc-markdown blockquote {
+  border-left: 4px solid var(--ifm-color-primary) !important;
+  background: var(--ifm-color-emphasis-100) !important;
+  padding: 1rem 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  border-radius: 0 8px 8px 0 !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 996px) {
+  .theme-doc-sidebar-container {
+    width: 100% !important;
+    height: auto !important;
+    position: relative !important;
+    top: auto !important;
+    overflow-y: visible !important;
+  }
+  
+  .theme-doc-wrapper {
+    max-width: 100% !important;
+  }
+  
+  .theme-doc-markdown {
+    max-width: 100% !important;
+    padding: 1.5rem 1rem !important;
+  }
+  
+  .theme-doc-markdown h1 {
+    font-size: 2rem !important;
+  }
+  
+  .theme-doc-markdown h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .theme-doc-markdown p,
+  .theme-doc-markdown ul,
+  .theme-doc-markdown ol {
+    font-size: 1rem !important;
+  }
 }
