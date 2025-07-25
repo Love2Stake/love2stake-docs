@@ -501,6 +501,8 @@ html[data-theme='dark'] .navbar {
 .table-of-contents__left-border {
   margin-top: 1.15rem;
   top: calc(var(--ifm-navbar-height) + 2rem) !important;
+  border: none !important;
+  border-left: none !important;
 }
 
 /* Right sidebar TOC positioning */
@@ -659,7 +661,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: calc(var(--content-max-width) + var(--content-padding)) !important;
   width: calc(var(--content-max-width) + var(--content-padding)) !important;
   margin: 0 auto !important;
-  padding: 0 var(--content-padding) var(--content-padding) var(--content-padding) !important;
+  padding: 0 var(--content-padding) var(--content-padding) calc(var(--content-padding) / 2) !important;
   padding-right: 0 !important;
 }
 
@@ -668,7 +670,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: calc(var(--content-max-width) + var(--content-padding)) !important;
   width: calc(var(--content-max-width) + var(--content-padding)) !important;
   margin: 0 auto !important;
-  padding: 0 var(--content-padding) var(--content-padding) var(--content-padding) !important;
+  padding: 0 var(--content-padding) var(--content-padding) 0 !important;
   padding-right: 0 !important;
 }
 
@@ -699,8 +701,8 @@ h1, h2, h3, h4, h5, h6 {
   overflow-y: auto !important;
   overflow-x: hidden !important;
   padding: 1rem 1rem 1rem 0 !important;
+  margin-right: 3rem !important;
   background: var(--ifm-background-color) !important;
-  border-left: 1px solid var(--ifm-color-emphasis-200) !important;
   z-index: 1 !important;
   flex: 0 0 var(--toc-width) !important;
 }
