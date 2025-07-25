@@ -32,7 +32,7 @@ Our documentation covers multiple blockchain networks, each with their own uniqu
 Choose your path based on your experience level and goals:
 
 ### **New to Staking?**
-1. Start with our [Installation Guide](./installation)
+1. Start with our [Installation Guide](./getting-started/installation)
 2. Learn about different staking mechanisms
 3. Understand risks and rewards
 
@@ -60,9 +60,9 @@ Choose your path based on your experience level and goals:
 
 Ready to begin your staking journey? Here are the recommended next steps:
 
-- **[Installation Guide](./installation)** - Set up your development environment
+- **[Installation Guide](./getting-started/installation)** - Set up your development environment
 - **[Ethereum Staking](../ethereum-eth/introduction)** - Get started with Ethereum 2.0 staking
-- **[Cardano Staking](../cardano-ada/)** - Learn about Cardano delegation and pool operation
+- **[Cardano Staking](../cardano-ada/introduction)** - Learn about Cardano delegation and pool operation
 
 ---
 

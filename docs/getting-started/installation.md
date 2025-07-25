@@ -183,8 +183,8 @@ echo "net.core.rmem_max = 16777216" | sudo tee -a /etc/sysctl.conf
 With your system properly configured, you're ready to proceed with network-specific setup:
 
 - **[Ethereum Setup](../ethereum-eth/node-setup)** - Configure an Ethereum validator
-- **[Cardano Setup](../cardano-ada/)** - Set up a Cardano stake pool
-- **[Security Best Practices](./security)** - Advanced security measures
+- **[Cardano Setup](../cardano-ada/introduction)** - Set up a Cardano stake pool
+- **Security Best Practices** - Advanced security measures (implement proper security practices as outlined above)
 
 ## Troubleshooting
 

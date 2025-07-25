@@ -152,14 +152,14 @@ Consider delegating to smaller pools to support network decentralization:
 Ready to start staking your ADA?
 
 ### **For Delegators**
-1. **[Set up a Cardano wallet](./wallet-setup)**
-2. **[Choose a stake pool](./pool-selection)**
-3. **[Delegate your ADA](./delegation-guide)**
+1. **Choose a Cardano wallet** (Daedalus, Yoroi, AdaLite, or hardware wallets)
+2. **Select a stake pool** using the criteria outlined above
+3. **Delegate your ADA** through your wallet's delegation interface
 
 ### **For Pool Operators**
-1. **[Server setup requirements](./pool-setup)**
-2. **[Install Cardano node](./node-installation)**
-3. **[Pool registration process](./pool-registration)**
+1. **Set up server requirements** (Linux server with reliable internet)
+2. **Install Cardano node** following the official documentation
+3. **Complete pool registration** process and begin operations
 
 ---
 
