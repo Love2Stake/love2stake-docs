@@ -498,6 +498,7 @@ html[data-theme='dark'] .navbar {
 /* Table of Contents Styling - Align with navigation menu */
 .table-of-contents,
 .table-of-contents__left-border {
+  margin-top: 1.15rem;
   top: calc(var(--ifm-navbar-height) + 2rem) !important;
 }
 
