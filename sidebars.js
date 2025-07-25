@@ -25,7 +25,7 @@ const sidebars = {
         'getting-started/installation',
         // Add more getting started docs here
       ],
-      collapsed: false,
+      collapsed: true,
     },
     {
       type: 'category',
@@ -36,14 +36,7 @@ const sidebars = {
         'ethereum-eth/staking-basics',
         'ethereum-eth/smart-contracts',
       ],
-      collapsed: false,
-    },
-    {
-      type: 'category',
-      label: 'Cardano: ADA',
-      link: { type: 'generated-index', description: 'A guide to cardano' },
-      items: [
-      ],
+      collapsed: true,
     },
   ],
 };export default sidebars;
