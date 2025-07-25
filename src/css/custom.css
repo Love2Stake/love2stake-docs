@@ -66,6 +66,7 @@
   overflow-x: hidden !important;
   position: sticky !important;
   top: var(--ifm-navbar-height) !important;
+  margin-left: 2rem !important;
 }
 
 /* Sidebar scrollbar styling */
@@ -624,4 +625,210 @@ h1, h2, h3, h4, h5, h6 {
   scroll-margin-top: var(--ifm-heading-scroll-margin-top);
   position: relative;
 }
+
+/* Fixed layout with both left and right sidebars */
+:root {
+  --sidebar-width: 320px;
+  --toc-width: 280px;
+  --sidebar-margin: 2rem;
+  --content-max-width: calc(100vw - var(--sidebar-width) - var(--toc-width) - (var(--sidebar-margin) * 2));
+  --content-padding: 2rem;
+}
+
+/* Main container - centered layout */
+.main-wrapper {
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Container - center the content */
+.container {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* Documentation content - centered with fixed width extending to TOC edge */
+.docItemCol_VOVn {
+  max-width: calc(var(--content-max-width) + var(--content-padding)) !important;
+  width: calc(var(--content-max-width) + var(--content-padding)) !important;
+  margin: 0 auto !important;
+  padding: 0 var(--content-padding) var(--content-padding) var(--content-padding) !important;
+  padding-right: 0 !important;
+}
+
+/* Home page content - same approach */
+.main-wrapper .container .col:not(.docItemCol_VOVn) {
+  max-width: calc(var(--content-max-width) + var(--content-padding)) !important;
+  width: calc(var(--content-max-width) + var(--content-padding)) !important;
+  margin: 0 auto !important;
+  padding: 0 var(--content-padding) var(--content-padding) var(--content-padding) !important;
+  padding-right: 0 !important;
+}
+
+/* Documentation layout wrapper - center everything */
+.theme-doc-wrapper {
+  display: flex !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+}
+
+/* Main content and sidebar container - centered */
+.docMainContainer_TBSr {
+  display: flex !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+  max-width: calc(100vw - (var(--sidebar-margin) * 2)) !important;
+}
+
+/* TOC Sidebar - fixed with right margin */
+.theme-doc-toc-desktop {
+  position: fixed !important;
+  right: var(--sidebar-margin) !important;
+  top: var(--ifm-navbar-height) !important;
+  width: var(--toc-width) !important;
+  height: calc(100vh - var(--ifm-navbar-height)) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding: 1rem 1rem 1rem 0 !important;
+  background: var(--ifm-background-color) !important;
+  border-left: 1px solid var(--ifm-color-emphasis-200) !important;
+  z-index: 1 !important;
+  flex: 0 0 var(--toc-width) !important;
+}
+
+/* TOC Styling - similar to left sidebar */
+.theme-doc-toc-desktop .table-of-contents {
+  padding: 0.5rem 0 0.5rem 0 !important;
+  margin: 0 !important;
+}
+
+.theme-doc-toc-desktop .table-of-contents__link {
+  font-size: 0.875rem !important;
+  padding: 0.4rem 0.75rem !important;
+  border-radius: 6px !important;
+  color: var(--tree-node-color, #8a94a6) !important;
+  line-height: 1.4 !important;
+  background: transparent !important;
+  transition: all 0.15s ease !important;
+  margin: 1px 0 !important;
+  display: block !important;
+  text-decoration: none !important;
+}
+
+.theme-doc-toc-desktop .table-of-contents__link:hover {
+  background: var(--tree-hover-bg, #f6f8fa) !important;
+  color: var(--tree-folder-color, #405061) !important;
+  text-decoration: none !important;
+}
+
+.theme-doc-toc-desktop .table-of-contents__link--active {
+  background: var(--tree-active-bg, #f0f9ff) !important;
+  color: var(--tree-active-color, var(--ifm-color-primary)) !important;
+  font-weight: 600 !important;
+  border-radius: 6px 0 0 6px !important;
+  border-right: 3px solid var(--tree-active-color, var(--ifm-color-primary)) !important;
+  padding-right: 1rem !important;
+}
+
+/* TOC scrollbar styling - match left sidebar */
+.theme-doc-toc-desktop::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.theme-doc-toc-desktop::-webkit-scrollbar-track {
+  background: var(--ifm-scrollbar-track-color) !important;
+}
+
+.theme-doc-toc-desktop::-webkit-scrollbar-thumb {
+  background: var(--ifm-scrollbar-thumb-color) !important;
+  border-radius: 3px !important;
+}
+
+.theme-doc-toc-desktop::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-scrollbar-thumb-hover-color) !important;
+}
+
+/* Reserve space for TOC even when it's empty/hidden */
+.theme-doc-toc-desktop:empty::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1600px) {
+  :root {
+    --toc-width: 250px;
+    --sidebar-margin: 1.5rem;
+    --content-max-width: calc(100vw - var(--sidebar-width) - var(--toc-width) - (var(--sidebar-margin) * 2));
+  }
+}
+
+@media (max-width: 1400px) {
+  :root {
+    --toc-width: 220px;
+    --sidebar-margin: 1rem;
+    --content-max-width: calc(100vw - var(--sidebar-width) - var(--toc-width) - (var(--sidebar-margin) * 2));
+  }
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --toc-width: 0px;
+    --sidebar-margin: 1rem;
+    --content-max-width: calc(100vw - var(--sidebar-width) - var(--sidebar-margin));
+    --content-padding: 1.5rem;
+  }
   
+  .theme-doc-toc-desktop {
+    display: none !important;
+  }
+  
+  .theme-doc-sidebar-container {
+    margin-left: var(--sidebar-margin) !important;
+  }
+}
+
+@media (max-width: 996px) {
+  :root {
+    --sidebar-width: 0px;
+    --toc-width: 0px;
+    --sidebar-margin: 0px;
+    --content-max-width: 100vw;
+    --content-padding: 1rem;
+  }
+  
+  .theme-doc-sidebar-container {
+    margin-left: 0 !important;
+  }
+  
+  .container,
+  .docItemCol_VOVn,
+  .main-wrapper .container .col:not(.docItemCol_VOVn) {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 1rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --content-padding: 0.5rem;
+  }
+  
+  .container,
+  .docItemCol_VOVn,
+  .main-wrapper .container .col:not(.docItemCol_VOVn) {
+    padding: 0 0.5rem !important;
+  }
+}
