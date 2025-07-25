@@ -1,6 +1,5 @@
 ---
 id: overview
-slug: /
 sidebar_position: 1
 title: Love2Stake Documentation
 ---

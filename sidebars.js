@@ -17,6 +17,9 @@
 const sidebars = {
   // Manually defined sidebar structure
   guideSidebar: [
+    // Single standalone document - replace 'your-doc-id' with your actual document path
+    // 'your-doc-id',
+    'home',
     {
       type: 'category',
       label: 'Getting started',
@@ -24,17 +27,6 @@ const sidebars = {
         'getting-started/overview',
         'getting-started/installation',
         // Add more getting started docs here
-      ],
-      collapsed: true,
-    },
-    {
-      type: 'category',
-      label: 'Ethereum: ETH',
-      items: [
-        'ethereum-eth/introduction',
-        'ethereum-eth/node-setup',
-        'ethereum-eth/staking-basics',
-        'ethereum-eth/smart-contracts',
       ],
       collapsed: true,
     },
