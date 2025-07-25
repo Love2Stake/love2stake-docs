@@ -24,6 +24,9 @@
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
   --ifm-hover-overlay: transparent;
+  
+  /* Fix TOC scroll offset */
+  --ifm-heading-scroll-margin-top: 100px;
 }
 
 /* Import Google Fonts */
@@ -247,11 +250,6 @@
   display: none !important;
 }
 
-/* Add spacing to replace breadcrumb navigation */
-.theme-doc-markdown {
-  padding-top: 1.5rem !important;
-}
-
 /* Hide footer */
 footer.footer {
   display: none !important;
@@ -273,25 +271,25 @@ footer.footer {
 /* Adjust navbar height to accommodate larger logo and text */
 .navbar {
   min-height: 4.5rem !important; /* Increased from 4rem */
-  background-color: var(--ifm-background-color) !important;
-  backdrop-filter: none !important;
-  background: var(--ifm-background-color) !important;
   border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
 }
 
-/* Force opaque navbar in light mode */
+/* Force opaque navbar */
+.navbar {
+  background-color: var(--ifm-background-color) !important;
+  background: var(--ifm-background-color) !important;
+  opacity: 1 !important;
+}
+
 html[data-theme='light'] .navbar,
 html:not([data-theme]) .navbar {
   background-color: #ffffff !important;
   background: #ffffff !important;
-  opacity: 1 !important;
 }
 
-/* Force opaque navbar in dark mode */
 html[data-theme='dark'] .navbar {
   background-color: #1b1b1d !important;
   background: #1b1b1d !important;
-  opacity: 1 !important;
 }
 
 /* Ensure logo is properly centered vertically */
@@ -567,25 +565,6 @@ html[data-theme='dark'] .navbar {
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
-    background-color: var(--ifm-background-color) !important;
-    background: var(--ifm-background-color) !important;
-    backdrop-filter: none !important;
-    border-bottom: 1px solid var(--ifm-color-emphasis-300) !important;
-  }
-  
-  /* Force opaque mobile navbar in light mode */
-  html[data-theme='light'] .navbar,
-  html:not([data-theme]) .navbar {
-    background-color: #ffffff !important;
-    background: #ffffff !important;
-    opacity: 1 !important;
-  }
-
-  /* Force opaque mobile navbar in dark mode */
-  html[data-theme='dark'] .navbar {
-    background-color: #1b1b1d !important;
-    background: #1b1b1d !important;
-    opacity: 1 !important;
   }
   
   .navbar__inner {
@@ -637,36 +616,11 @@ html[data-theme='dark'] .navbar {
     width: 100% !important;
     max-width: 100% !important;
   }
-  
-  /* Mobile pagination styling */
-  .pagination-nav {
-    flex-direction: column !important;
-    gap: 0.75rem !important;
-    padding: 0 1rem !important;
-    margin: 2rem auto 1.5rem auto !important;
-  }
-  
-  .pagination-nav__item {
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-  
-  .pagination-nav__link {
-    padding: 0.875rem 1rem !important;
-    text-align: center !important;
-  }
-  
-  .pagination-nav__item--prev .pagination-nav__link,
-  .pagination-nav__item--next .pagination-nav__link {
-    text-align: center !important;
-  }
-  
-  .pagination-nav__sublabel {
-    font-size: 0.8rem !important;
-  }
-  
-  .pagination-nav__label {
-    font-size: 0.95rem !important;
-  }
+}
+
+/* Fix TOC click offset by adding scroll margin to headings */
+h1, h2, h3, h4, h5, h6 {
+  scroll-margin-top: var(--ifm-heading-scroll-margin-top);
+  position: relative;
 }
   

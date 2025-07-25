@@ -79,6 +79,20 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: 'img/docusaurus-social-card.jpg',
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 4,
+      },
+      // Fix TOC click offset issue
+      docs: {
+        sidebar: {
+          autoCollapseCategories: true,
+        },
+      },
+      // Adjust scroll offset for anchor links
+      colorMode: {
+        respectPrefersColorScheme: true,
+      },
       navbar: {
         title: 'Love2Stake',
         logo: {
