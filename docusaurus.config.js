@@ -84,7 +84,7 @@ const config = {
         title: 'Love2Stake',
         logo: {
           alt: 'Love2Stake Logo',
-          src: 'img/logo.svg',
+          src: 'img/love2stake.svg',
         },
         items: [
           {
