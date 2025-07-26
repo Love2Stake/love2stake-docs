@@ -11,16 +11,16 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
-          Love2Stake Documentation
+          Love2Stake Developer Portal
         </Heading>
         <p className="hero__subtitle">
-          Complete guides, API references, and resources for the Love2Stake platform
+          Let's build together
         </p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
             to="/docs/hello">
-            Get Started →
+            Get Started
           </Link>
         </div>
       </div>
@@ -40,75 +40,84 @@ function FeatureCard({title, description, icon}) {
   );
 }
 
-function HomepageFeatures() {
-  const features = [
-    {
-      title: 'Easy Integration',
-      icon: '🚀',
-      description: 'Get started with Love2Stake quickly using our comprehensive guides and examples.',
-    },
-    {
-      title: 'Powerful APIs',
-      icon: '⚡',
-      description: 'Access robust staking functionality through our well-documented REST and GraphQL APIs.',
-    },
-    {
-      title: 'Developer Friendly',
-      icon: '💻',
-      description: 'Built with developers in mind, featuring clear documentation and helpful code samples.',
-    },
-  ];
+// function HomepageFeatures() {
+//   const features = [
+//     {
+//       title: 'Easy Integration',
+//       icon: '🚀',
+//       description: 'Get started with Love2Stake quickly using our comprehensive guides and examples.',
+//     },
+//     {
+//       title: 'Powerful APIs',
+//       icon: '⚡',
+//       description: 'Access robust staking functionality through our well-documented REST and GraphQL APIs.',
+//     },
+//     {
+//       title: 'Developer Friendly',
+//       icon: '💻',
+//       description: 'Built with developers in mind, featuring clear documentation and helpful code samples.',
+//     },
+//   ];
 
-  return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {features.map((props, idx) => (
-            <FeatureCard key={idx} {...props} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+//   return (
+//     <section className={styles.features}>
+//       <div className="container">
+//         <div className="row">
+//           {features.map((props, idx) => (
+//             <FeatureCard key={idx} {...props} />
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
 function QuickLinks() {
   const links = [
     {
-      title: 'API Reference',
-      description: 'Explore our comprehensive API documentation',
+      title: 'Get Started',
+      description: 'Get an overview of Love2Stake, understand the components, discover builder tools, learn technical concepts and connect to the developer community.',
       to: '/docs/hello',
-      icon: '📚',
+      icon: '�',
     },
     {
-      title: 'Tutorials',
-      description: 'Step-by-step guides to get you started',
+      title: 'Integrate Love2Stake',
+      description: 'Explore Love2Stake APIs and learn how to integrate staking functionality into applications and websites.',
       to: '/docs/hello',
-      icon: '🎓',
+      icon: '🔗',
     },
     {
-      title: 'Examples',
-      description: 'Real-world code examples and use cases',
+      title: 'Build with APIs',
+      description: 'Learn about our REST and GraphQL APIs, authentication, rate limiting and how to build production applications.',
       to: '/docs/hello',
-      icon: '💡',
+      icon: '⚡',
     },
     {
-      title: 'Support',
-      description: 'Get help from our community and support team',
+      title: 'Pool Management',
+      description: 'Discover automated pool management tools, monitoring systems, and best practices for stake pool operators.',
       to: '/docs/hello',
-      icon: '🆘',
+      icon: '�‍♂️',
+    },
+    {
+      title: 'Delegation Tools',
+      description: 'Learn how to implement delegation features, reward tracking, and portfolio management for your users.',
+      to: '/docs/hello',
+      icon: '💰',
+    },
+    {
+      title: 'Developer Resources',
+      description: 'Access code examples, SDKs, testing environments, and community resources to accelerate your development.',
+      to: '/docs/hello',
+      icon: '🛠️',
     },
   ];
 
   return (
     <section className={styles.quickLinks}>
       <div className="container">
-        <Heading as="h2" className="text--center margin-bottom--lg">
-          Quick Links
-        </Heading>
         <div className="row">
           {links.map((link, idx) => (
-            <div key={idx} className="col col--3 margin-bottom--md">
+            <div key={idx} className="col col--4 margin-bottom--lg">
               <Link to={link.to} className={styles.quickLinkCard}>
                 <div className={styles.quickLinkIcon}>{link.icon}</div>
                 <h3>{link.title}</h3>
@@ -122,16 +131,54 @@ function QuickLinks() {
   );
 }
 
+function CommunitySection() {
+  return (
+    <section className={styles.communitySection}>
+      <div className="container">
+        <div className="row">
+          <div className="col col--4">
+            <h3>Developer Portal</h3>
+            <ul className={styles.linkList}>
+              <li><Link to="/docs/hello">How to Contribute</Link></li>
+              <li><Link to="/docs/hello">Contributors</Link></li>
+              <li><Link href="https://github.com/Love2Stake">GitHub Repository</Link></li>
+              <li><Link to="/docs/hello">Style Guide</Link></li>
+            </ul>
+          </div>
+          <div className="col col--4">
+            <h3>Developer Community</h3>
+            <ul className={styles.linkList}>
+              <li><Link href="https://discord.gg/love2stake">Discord</Link></li>
+              <li><Link href="https://forum.love2stake.com">Community Forum</Link></li>
+              <li><Link to="/docs/hello">Developer Resources</Link></li>
+              <li><Link to="/docs/hello">More</Link></li>
+            </ul>
+          </div>
+          <div className="col col--4">
+            <h3>More about Love2Stake</h3>
+            <ul className={styles.linkList}>
+              <li><Link to="/docs/hello">Careers</Link></li>
+              <li><Link href="https://love2stake.com">Love2Stake Platform</Link></li>
+              <li><Link to="/blog">Development Updates</Link></li>
+              <li><Link to="/docs/hello">Stake Pool Operations</Link></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
       title={`Welcome to ${siteConfig.title}`}
-      description="Love2Stake Documentation - Complete guides, API references, and resources for developers">
+      description="Love2Stake Developer Portal - Complete guides, API references, and resources for developers">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
         <QuickLinks />
+        <CommunitySection />
       </main>
     </Layout>
   );
