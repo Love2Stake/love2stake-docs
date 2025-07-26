@@ -16,41 +16,50 @@
  */
 const sidebars = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
-  tutorialSidebar: [
-    'hello',
+  documentationSidebar: [
+    {
+      type: 'html',
+      value: '<div style="margin: 0.5rem;"></div>',
+    },
     // {
     //   type: 'category',
-    //   label: 'Tutorial Basics',
+    //   label: 'Getting Started',
+    //   link: {
+    //     type: 'doc',
+    //     id: 'getting-started/index',
+    //   },
     //   items: [
-    //     'tutorial-basics/create-a-document',
-    //     'tutorial-basics/create-a-page',
-    //     'tutorial-basics/markdown-features',
-    //     'tutorial-basics/deploy-your-site',
-    //     'tutorial-basics/congratulations'
+    //     'getting-started/using-love2automate'
     //   ],
     // },
-    // {
-    //   type: 'category',
-    //   label: 'Tutorial - Extras',
-    //   items: [
-    //     'tutorial-extras/manage-docs-versions',
-    //     'tutorial-extras/translate-your-site'
-    //   ]
-    // },
-  ],
-
-  // But you can create a sidebar manually
-  /*
-  tutorialSidebar: [
-    'intro',
-    'hello',
+    'getting-started',
     {
       type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
+      label: 'How to Set Up a Cardano Stake Pool',
+      link: {
+        type: 'doc',
+        id: 'how-to-set-up-a-cardano-stake-pool/index',
+      },
+      items: [
+        {
+          type: 'category',
+          label: 'Installation',
+          items: [
+            'how-to-set-up-a-cardano-stake-pool/installation/prerequisites'
+          ],
+        },
+      ],
     },
+    {
+      type: 'html',
+      value: '<div style="height: 1px; background-color: var(--ifm-color-emphasis-300); margin: 1rem 1rem;"></div>',
+    },
+    'about-us',
+    'donations',
+    'disclaimer',
   ],
-   */
+
+  // Add new sidebar here
 };
 
 export default sidebars;
