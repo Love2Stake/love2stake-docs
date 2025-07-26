@@ -19,7 +19,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/hello">
+            to="/docs/getting-started">
             Get Started
           </Link>
         </div>
@@ -33,37 +33,37 @@ function QuickLinks() {
     {
       title: 'Get Started',
       description: 'Get an overview of Love2Stake, understand the components, discover builder tools, learn technical concepts and connect to the developer community.',
-      to: '/docs/hello',
+      to: '/docs/getting-started',
       icon: '🚀',
     },
     {
       title: 'Integrate Love2Stake',
       description: 'Explore Love2Stake APIs and learn how to integrate staking functionality into applications and websites.',
-      to: '/docs/hello',
+      to: '/docs/getting-started',
       icon: '🔗',
     },
     {
       title: 'Build with APIs',
       description: 'Learn about our REST and GraphQL APIs, authentication, rate limiting and how to build production applications.',
-      to: '/docs/hello',
+      to: '/docs/getting-started',
       icon: '⚡',
     },
     {
       title: 'Pool Management',
       description: 'Discover automated pool management tools, monitoring systems, and best practices for stake pool operators.',
-      to: '/docs/hello',
+      to: '/docs/getting-started',
       icon: '🏊‍♂️',
     },
     {
       title: 'Delegation Tools',
       description: 'Learn how to implement delegation features, reward tracking, and portfolio management for your users.',
-      to: '/docs/hello',
+      to: '/docs/getting-started',
       icon: '💰',
     },
     {
       title: 'Developer Resources',
       description: 'Access code examples, SDKs, testing environments, and community resources to accelerate your development.',
-      to: '/docs/hello',
+      to: '/docs/getting-started',
       icon: '🛠️',
     },
   ];
@@ -95,10 +95,10 @@ function CommunitySection() {
           <div className="col col--4">
             <h3>Developer Portal</h3>
             <ul className={styles.linkList}>
-              <li><Link to="/docs/hello">How to Contribute</Link></li>
-              <li><Link to="/docs/hello">Contributors</Link></li>
+              <li><Link to="/docs/getting-started">How to Contribute</Link></li>
+              <li><Link to="/docs/getting-started">Contributors</Link></li>
               <li><Link href="https://github.com/Love2Stake">GitHub Repository</Link></li>
-              <li><Link to="/docs/hello">Style Guide</Link></li>
+              <li><Link to="/docs/getting-started">Style Guide</Link></li>
             </ul>
           </div>
           <div className="col col--4">
@@ -106,17 +106,17 @@ function CommunitySection() {
             <ul className={styles.linkList}>
               <li><Link href="https://discord.gg/love2stake">Discord</Link></li>
               <li><Link href="https://forum.love2stake.com">Community Forum</Link></li>
-              <li><Link to="/docs/hello">Developer Resources</Link></li>
-              <li><Link to="/docs/hello">More</Link></li>
+              <li><Link to="/docs/getting-started">Developer Resources</Link></li>
+              <li><Link to="/docs/getting-started">More</Link></li>
             </ul>
           </div>
           <div className="col col--4">
             <h3>More about Love2Stake</h3>
             <ul className={styles.linkList}>
-              <li><Link to="/docs/hello">Careers</Link></li>
+              <li><Link to="/docs/getting-started">Careers</Link></li>
               <li><Link href="https://love2stake.com">Love2Stake Platform</Link></li>
               <li><Link to="/blog">Development Updates</Link></li>
-              <li><Link to="/docs/hello">Stake Pool Operations</Link></li>
+              <li><Link to="/docs/getting-started">Stake Pool Operations</Link></li>
             </ul>
           </div>
         </div>
