@@ -28,57 +28,13 @@ function HomepageHeader() {
   );
 }
 
-function FeatureCard({title, description, icon}) {
-  return (
-    <div className={clsx('col col--4', styles.feature)}>
-      <div className="text--center">
-        <div className={styles.featureIcon}>{icon}</div>
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
-}
-
-// function HomepageFeatures() {
-//   const features = [
-//     {
-//       title: 'Easy Integration',
-//       icon: '🚀',
-//       description: 'Get started with Love2Stake quickly using our comprehensive guides and examples.',
-//     },
-//     {
-//       title: 'Powerful APIs',
-//       icon: '⚡',
-//       description: 'Access robust staking functionality through our well-documented REST and GraphQL APIs.',
-//     },
-//     {
-//       title: 'Developer Friendly',
-//       icon: '💻',
-//       description: 'Built with developers in mind, featuring clear documentation and helpful code samples.',
-//     },
-//   ];
-
-//   return (
-//     <section className={styles.features}>
-//       <div className="container">
-//         <div className="row">
-//           {features.map((props, idx) => (
-//             <FeatureCard key={idx} {...props} />
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
 function QuickLinks() {
   const links = [
     {
       title: 'Get Started',
       description: 'Get an overview of Love2Stake, understand the components, discover builder tools, learn technical concepts and connect to the developer community.',
       to: '/docs/hello',
-      icon: '�',
+      icon: '🚀',
     },
     {
       title: 'Integrate Love2Stake',
@@ -96,7 +52,7 @@ function QuickLinks() {
       title: 'Pool Management',
       description: 'Discover automated pool management tools, monitoring systems, and best practices for stake pool operators.',
       to: '/docs/hello',
-      icon: '�‍♂️',
+      icon: '🏊‍♂️',
     },
     {
       title: 'Delegation Tools',
