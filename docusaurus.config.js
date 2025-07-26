@@ -84,19 +84,20 @@ const config = {
         title: 'Love2Stake',
         logo: {
           alt: 'Love2Stake Logo',
-          src: 'img/logo.svg',
+          src: 'img/love2stake.svg',
         },
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'documentationSidebar',
             position: 'left',
             label: 'Documentation',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/change-log', label: 'Change Log', position: 'left'},
           {
             href: 'https://github.com/Love2Stake',
-            label: 'GitHub',
+            className: 'header-github-link',
+            'aria-label': 'GitHub organisation',
             position: 'right',
           },
         ],
