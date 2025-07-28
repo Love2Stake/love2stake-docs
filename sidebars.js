@@ -44,6 +44,10 @@ const sidebars = {
         {
           type: 'category',
           label: 'Installation',
+          link: {
+            type: 'doc',
+            id: 'how-to-set-up-a-cardano-stake-pool/installation/index',
+          },
           items: [
             'how-to-set-up-a-cardano-stake-pool/installation/prerequisites'
           ],
