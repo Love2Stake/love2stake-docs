@@ -55,7 +55,6 @@ const sidebars = {
       value: '<div style="height: 1px; background-color: var(--ifm-color-emphasis-300); margin: 1rem 1rem;"></div>',
     },
     'about-us',
-    'donations',
     'disclaimer',
   ],
 

@@ -1,5 +1,9 @@
 import { DisclaimerTemplates } from '@site/src/components/DisclaimerTemplates';
 
-# Getting Started
+# Showcase
+
+Add header here.
+
+This is where showcase projects will be
 
 <DisclaimerTemplates.StakePool/>

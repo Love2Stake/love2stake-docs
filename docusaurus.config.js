@@ -55,7 +55,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/love2stake.svg',
       navbar: {
         title: 'Love2Stake',
         logo: {
@@ -69,6 +69,7 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
+          {to: '/showcase', label: 'Showcase', position: 'left'},
           {to: '/change-log', label: 'Change Log', position: 'left'},
           {
             href: 'https://github.com/Love2Stake',
