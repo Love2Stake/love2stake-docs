@@ -1,0 +1,82 @@
+.disclaimer {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  margin: 20px 0;
+  border-radius: 12px;
+  border: 2px solid;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.disclaimerIcon {
+  margin-right: 12px;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.disclaimerContent {
+  flex: 1;
+}
+
+.disclaimerContent strong {
+  font-weight: 600;
+}
+
+.disclaimerContent p {
+  margin-bottom: 0;
+}
+
+.disclaimerContent p:last-child {
+  margin-bottom: 0;
+}
+
+/* Warning style (orange) */
+.warning {
+  background-color: #fff4e6;
+  border-color: #ff8c00;
+  color: #8b4513;
+}
+
+[data-theme='dark'] .warning {
+  background-color: #2d1b0d;
+  color: #ffb366;
+}
+
+/* Info style (grey) */
+.info {
+  background-color: #f8f9fa;
+  border-color: #6c757d;
+  color: #495057;
+}
+
+[data-theme='dark'] .info {
+  background-color: #343a40;
+  color: #e9ecef;
+}
+
+/* Danger style (red) */
+.danger {
+  background-color: #ffe6e6;
+  border-color: #cc0000;
+  color: #800000;
+}
+
+[data-theme='dark'] .danger {
+  background-color: #290d0d;
+  color: #ff6666;
+}
+
+/* Success style (green) */
+.success {
+  background-color: #e6ffe6;
+  border-color: #00cc00;
+  color: #006600;
+}
+
+[data-theme='dark'] .success {
+  background-color: #0d290d;
+  color: #66ff66;
+}
