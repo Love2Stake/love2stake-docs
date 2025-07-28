@@ -11,10 +11,10 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
-          Love2Stake Developer Portal
+          Love2Stake
         </Heading>
         <p className="hero__subtitle">
-          Let's build together
+          0% Fee Cardano Stake Pool · Powered by Love2 Automate
         </p>
         <div className={styles.buttons}>
           <Link
@@ -115,7 +115,7 @@ function CommunitySection() {
             <ul className={styles.linkList}>
               <li><Link to="/docs/getting-started">Careers</Link></li>
               <li><Link href="https://love2stake.com">Love2Stake Platform</Link></li>
-              <li><Link to="/blog">Development Updates</Link></li>
+              <li><Link to="/change-log">Development Updates</Link></li>
               <li><Link to="/docs/getting-started">Stake Pool Operations</Link></li>
             </ul>
           </div>
