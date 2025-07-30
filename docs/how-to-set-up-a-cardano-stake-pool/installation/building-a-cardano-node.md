@@ -2,7 +2,7 @@
 
 This guide will explain how to build a Cardano Node using the <a href="github.com/Love2Stake/love2automate-ada">Love2Automate</a> tool and should be followed after completing an installation of Ubuntu Server 22.04+.
 
-### 1. Installing Ansible, required collections, and set system PATH
+<!-- ### 1. Installing Ansible, required collections, and set system PATH
 This code block will update packages, install Ansible using pip3, set system PATH, and install required collected required to run <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate</a>: 
 ```bash
 # Update package index to ensure we get the latest versions of packages
@@ -19,29 +19,96 @@ source ~/.bashrc
 # Install required collections
 ansible-galaxy collection install community.general
 ansible-galaxy collection install ansible.posix
-```
+``` -->
 
-### 2. Installing Love2Automate
+
+### 1. Installing Love2Automate
 This will download the latest release of Love2Automate from the <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate repository</a> and ensure it becomes an executable:
 ```bash
-# Download the latest release tar.gz and extract it
-curl -sL "https://github.com/Love2Stake/love2automate-ada/archive/refs/tags/$(curl -s https://api.github.com/repos/Love2Stake/love2automate-ada/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")').tar.gz" -o love2automate-ada.tar.gz
+# Get the latest release tag from GitHub
+TAG=$(curl -s https://api.github.com/repos/Love2Stake/love2automate-ada/releases/latest | grep -oP '"tag_name": "\K[^"]+')
 
-# Extract the tar.gz
-tar -xzf love2automate-ada.tar.gz
+# Define the asset name
+ASSET_NAME="love2automate-ada-linux-x64.tar.gz"
 
-# Make the extracted file executable (assumes only one file in the archive)
-chmod +x "$(tar -tzf love2automate-ada.tar.gz | head -n 1)"
+# Download the .tar.gz release asset
+wget -O "$ASSET_NAME" "https://github.com/Love2Stake/love2automate-ada/releases/download/$TAG/$ASSET_NAME"
+
+# Verify the downloaded file
+file "$ASSET_NAME"
+
+# Extract the contents
+tar -xzf "$ASSET_NAME"
+
+# Removes .tar.gz release asset
+rm "$ASSET_NAME"
+
+# Make the binary executable
+chmod +x love2automate-ada
+```
+<br />
+
+### 2. Installing Dependencies with Love2Automate
+
+The following command will updating the package index, install ```pip3``` and ```pipx```, set environment variables, install Ansible, and then install the required Ansible collections. These dependencies are required to run other commands in this program.
+
+```bash
+./love2automate-ada --setup-deps
+```
+<br />
+The end of your terminal output for this command should look something like this. Ensure that the ```source ~/.bashrc``` is executed as it will immediately apply environment variable changes to the current terminal.
+
+```bash
+user@hostname:~/directory$ ./love2automate-ada --setup-deps
+✓ Dependencies setup completed successfully!
+
+⚠️  IMPORTANT: You MUST restart your terminal or run 'source ~/.bashrc' for PATH changes to take effect.
+
+Next steps:
+1. Restart your terminal (or run: source ~/.bashrc)
+2. Run: love2automate-ada --setup
+3. Run: love2automate-ada --install cardano-node
+```
+<br />
+
+### 3. Installing Ansible Playbooks for Love2Automate
+This command will pull all Ansible playbooks from the <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate GitHub repository</a> and store them in ```/opt/love2automate-ada/```.
+```bash
+# sudo is REQUIRED for this command
+sudo ./love2automate-ada --setup
+```
+<br />
+
+### 4. Installing the Cardano Node 
+
+This command will begin installing the Cardano Node and its required dependencies using the Ansible playbooks that were pulled from the <a href="https://github.com/Love2Stake/love2automate-ada">repository</a>.
+```bash
+./love2automate-ada --install cardano-node
 ```
 
-### 3. Running Love2Automate
-1. This command will pull all Ansible playbooks from the <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate GitHub repository</a> and store them in ```/opt/love2automate-ada/```
-    ```bash
-    # sudo is REQUIRED for this command
-    ./love2automate-ada --setup
-    ```
+The beginning of the terminal output for the installation of the Cardano node should look like this:
+```bash
+user@hostname:~/love2automate$ ./love2automate-ada --install cardano-node
+Installing cardano-node...
+Checking prerequisites...
+Checking Ansible installation... ✓ FOUND
+Checking Ansible collections... ✓ FOUND
+Checking Ansible files... ✓ FOUND
+Checking inventory.ini... ✓ CONFIGURED
+✓ All prerequisites satisfied!
 
-2. This command will begin building the Cardano Node using the Ansible playbooks that were pulled from the <a href="https://github.com/Love2Stake/love2automate-ada">repository</a>
-    ```bash
-    ./love2automate-ada --install cardano-node
-    ```
+Note: This playbook requires sudo privileges. You will be prompted for your password.
+Executing: ansible-playbook -i /opt/love2automate-ada/inventory.ini -e @/opt/love2automate-ada/install_param.yml --ask-become-pass /opt/love2automate-ada/Build.yml
+BECOME password: 
+
+PLAY [01-Chrony_Setup] ***********************************************************************
+
+TASK [Gathering Facts] ***********************************************************************
+ok: [localhost]
+
+TASK [Update and upgrade APT packages] *******************************************************
+ok: [localhost]
+
+TASK [Install chrony] ************************************************************************
+ok: [localhost]
+```
