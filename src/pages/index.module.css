@@ -140,18 +140,18 @@
 [data-theme='light'] .customButton {
   background: rgba(248, 250, 252, 0.9);
   color: #1e293b;
-  border: 1px solid rgba(30, 41, 59, 0.15);
-  box-shadow: 0 12px 32px rgba(30, 41, 59, 0.15);
+  border: 1px solid rgba(0, 255, 204, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 255, 204, 0.1);
 }
 
 [data-theme='light'] .customButton::before {
-  background: linear-gradient(135deg, rgba(45, 122, 79, 0.08) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(0, 255, 204, 0.1) 0%, transparent 50%);
 }
 
 [data-theme='light'] .customButton:hover {
   transform: translateY(-6px);
-  border-color: rgba(45, 122, 79, 0.4);
-  box-shadow: 0 20px 48px rgba(30, 41, 59, 0.25);
+  border-color: rgba(0, 255, 204, 0.7);
+  box-shadow: 0 20px 48px rgba(0, 255, 204, 0.2);
   text-decoration: none;
   color: #1e293b;
 }
@@ -165,7 +165,8 @@
 
 [data-theme='light'] .communitySection {
   background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 50%, #b4c6d7 100%);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  /* Remove border for seamless gradient transition */
+  border-top: none;
 }
 
 .communitySection h3 {
@@ -200,8 +201,9 @@
 
 
 [data-theme='dark'] .communitySection {
-  background-color: var(--ifm-background-surface-color);
-  border-top: 1px solid var(--ifm-color-emphasis-300);
+  background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 50%, #080808 100%);
+  /* Remove border for seamless gradient transition */
+  border-top: none;
 }
 
 /* Dark theme adjustments for hero */
@@ -313,7 +315,7 @@
 /* Features Section - Futuristic Design */
 .featuresSection {
   padding: 6rem 1rem;
-  background: linear-gradient(180deg, #0b0b0b 0%, #080808 50%, #090909 100%);
+  background: #0b0b0b;
   position: relative;
 }
 
@@ -436,22 +438,23 @@
 
 /* Light theme feature cards */
 [data-theme='light'] .featureCard {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.8) 100%);
-  border: 1px solid rgba(30, 41, 59, 0.1);
-  box-shadow: 0 4px 20px rgba(30, 41, 59, 0.08);
+  background: rgba(248, 250, 252, 0.9);
+  border: 1px solid rgba(0, 255, 204, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 255, 204, 0.1);
 }
 
 [data-theme='light'] .featureCard::before {
-  background: linear-gradient(135deg, rgba(45, 122, 79, 0.05) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(0, 255, 204, 0.1) 0%, transparent 50%);
 }
 
 [data-theme='light'] .featureCard:hover {
-  border-color: rgba(45, 122, 79, 0.3);
-  box-shadow: 0 20px 60px rgba(45, 122, 79, 0.1);
+  transform: translateY(-6px);
+  border-color: rgba(0, 255, 204, 0.7);
+  box-shadow: 0 20px 48px rgba(0, 255, 204, 0.2);
 }
 
 [data-theme='light'] .featureIcon {
-  filter: drop-shadow(0 0 15px rgba(45, 122, 79, 0.2));
+  filter: drop-shadow(0 0 15px rgba(0, 255, 204, 0.5));
 }
 
 [data-theme='light'] .featureCard h3 {
@@ -463,14 +466,16 @@
 }
 
 [data-theme='light'] .featureGlow {
-  background: linear-gradient(90deg, transparent 0%, rgba(45, 122, 79, 0.4) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 255, 204, 0.7) 50%, transparent 100%);
 }
 
 /* Updated Quick Links - Modern Grid */
 .quickLinks {
   padding: 6rem 1rem;
-  background: linear-gradient(180deg, #0b0b0b 0%, #080808 50%, #090909 100%);
+  background: #0b0b0b;
   position: relative;
+  /* Add gradient transition to footer */
+  background: linear-gradient(180deg, #0b0b0b 0%, #0b0b0b 70%, #1a1a1a 100%);
 }
 
 .quickLinksGrid {
@@ -552,26 +557,27 @@
 
 /* Light theme quick links */
 [data-theme='light'] .quickLinks {
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #e2e8f0 100%);
 }
 
 [data-theme='light'] .quickLinkCard {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.8) 100%);
-  border: 1px solid rgba(30, 41, 59, 0.1);
-  box-shadow: 0 4px 20px rgba(30, 41, 59, 0.08);
+  background: rgba(248, 250, 252, 0.9);
+  border: 1px solid rgba(0, 255, 204, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 255, 204, 0.1);
 }
 
 [data-theme='light'] .quickLinkCard::before {
-  background: linear-gradient(135deg, rgba(45, 122, 79, 0.08) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(0, 255, 204, 0.1) 0%, transparent 50%);
 }
 
 [data-theme='light'] .quickLinkCard:hover {
-  border-color: rgba(45, 122, 79, 0.3);
-  box-shadow: 0 20px 60px rgba(45, 122, 79, 0.12);
+  transform: translateY(-6px);
+  border-color: rgba(0, 255, 204, 0.7);
+  box-shadow: 0 20px 48px rgba(0, 255, 204, 0.2);
 }
 
 [data-theme='light'] .quickLinkIcon {
-  filter: drop-shadow(0 0 10px rgba(45, 122, 79, 0.2));
+  filter: drop-shadow(0 0 15px rgba(0, 255, 204, 0.5));
 }
 
 [data-theme='light'] .quickLinkCard h3 {
@@ -583,11 +589,11 @@
 }
 
 [data-theme='light'] .cardArrow {
-  color: rgba(45, 122, 79, 0.7);
+  color: rgba(0, 255, 204, 0.7);
 }
 
 [data-theme='light'] .quickLinkCard:hover .cardArrow {
-  color: rgba(45, 122, 79, 1);
+  color: rgba(0, 255, 204, 1);
 }
 
 /* Responsive Updates for New Sections */
