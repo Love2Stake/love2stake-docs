@@ -1,0 +1,133 @@
+.codeContainer {
+  margin: 1rem 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-color-emphasis-0);
+}
+
+.codeHeader {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  font-size: 0.85rem;
+}
+
+.language {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-right: 12px;
+}
+
+.title {
+  flex: 1;
+  color: var(--ifm-color-content);
+  font-weight: 500;
+}
+
+.noCopyBadge {
+  background: #6b7280;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.codeBody {
+  background: var(--ifm-color-emphasis-0);
+  overflow-x: auto;
+}
+
+.noCopy {
+  /* Disable text selection */
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  /* Disable context menu */
+  pointer-events: none;
+  /* Disable highlighting */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.codeText {
+  margin: 0;
+  padding: 16px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--ifm-color-content);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.lineNumbersContainer {
+  display: flex;
+}
+
+.lineNumbers {
+  background: var(--ifm-color-emphasis-200);
+  padding: 16px 8px;
+  border-right: 1px solid var(--ifm-color-emphasis-300);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--ifm-color-content-secondary);
+  min-width: 40px;
+  text-align: right;
+}
+
+.lineNumber {
+  height: 1.4em;
+}
+
+.codeContent {
+  flex: 1;
+  padding: 16px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--ifm-color-content);
+}
+
+.codeLine {
+  height: 1.4em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Prevent selection highlighting */
+.noCopy::selection,
+.noCopy *::selection {
+  background: transparent !important;
+}
+
+.noCopy::-moz-selection,
+.noCopy *::-moz-selection {
+  background: transparent !important;
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] .codeContainer {
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .codeHeader {
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme='dark'] .codeBody {
+  background: var(--ifm-color-emphasis-100);
+}
+
+[data-theme='dark'] .lineNumbers {
+  background: var(--ifm-color-emphasis-300);
+}

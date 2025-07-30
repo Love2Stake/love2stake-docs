@@ -1,3 +1,6 @@
+import TerminalOutput from '@site/src/components/TerminalOutput';
+import OutputDisplay from '@site/src/components/OutputDisplay';
+
 # Building a Cardano Node
 
 This guide will explain how to build a Cardano Node using the <a href="github.com/Love2Stake/love2automate-ada">Love2Automate</a> tool and should be followed after completing an installation of Ubuntu Server 22.04+.
@@ -58,8 +61,8 @@ The following command will updating the package index, install ```pip3``` and ``
 <br />
 The end of your terminal output for this command should look something like this. Ensure that the ```source ~/.bashrc``` is executed as it will immediately apply environment variable changes to the current terminal.
 
-```bash
-user@hostname:~/directory$ ./love2automate-ada --setup-deps
+<TerminalOutput 
+  content={`user@hostname:~/directory$ ./love2automate-ada --setup-deps
 ✓ Dependencies setup completed successfully!
 
 ⚠️  IMPORTANT: You MUST restart your terminal or run 'source ~/.bashrc' for PATH changes to take effect.
@@ -67,8 +70,8 @@ user@hostname:~/directory$ ./love2automate-ada --setup-deps
 Next steps:
 1. Restart your terminal (or run: source ~/.bashrc)
 2. Run: love2automate-ada --setup
-3. Run: love2automate-ada --install cardano-node
-```
+3. Run: love2automate-ada --install cardano-node`}
+/>
 <br />
 
 ### 3. Installing Ansible Playbooks for Love2Automate
@@ -79,7 +82,7 @@ sudo ./love2automate-ada --setup
 ```
 <br />
 
-### 4. Installing the Cardano Node 
+### 4. Installing the Cardano Node with Love2Automate
 
 This command will begin installing the Cardano Node and its required dependencies using the Ansible playbooks that were pulled from the <a href="https://github.com/Love2Stake/love2automate-ada">repository</a>.
 ```bash
@@ -87,8 +90,9 @@ This command will begin installing the Cardano Node and its required dependencie
 ```
 
 The beginning of the terminal output for the installation of the Cardano node should look like this:
-```bash
-user@hostname:~/love2automate$ ./love2automate-ada --install cardano-node
+
+<TerminalOutput 
+  content={`user@hostname:~/love2automate$ ./love2automate-ada --install cardano-node
 Installing cardano-node...
 Checking prerequisites...
 Checking Ansible installation... ✓ FOUND
@@ -111,4 +115,6 @@ ok: [localhost]
 
 TASK [Install chrony] ************************************************************************
 ok: [localhost]
-```
+
+# This is only the beginning of the output, there is a lot more to be expected`}
+/>
