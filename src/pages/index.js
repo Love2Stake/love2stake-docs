@@ -178,38 +178,80 @@ export default function Home() {
     document.body.classList.add('homepage');
     document.documentElement.classList.add('homepage');
     
-    // Force navbar styling with inline styles
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-      // Set initial black background with enhanced blur
-      navbar.style.setProperty('background', 'rgba(0, 0, 0, 0.8)', 'important');
-      navbar.style.setProperty('backdrop-filter', 'blur(40px)', 'important');
-      navbar.style.setProperty('border-bottom', 'none', 'important');
-      console.log('Navbar forced to black with inline styles');
-    }
+    const applyNavbarStyling = () => {
+      // Force navbar styling with inline styles based on theme
+      const navbar = document.querySelector('.navbar');
+      const isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark';
+      
+      if (navbar) {
+        if (isDarkTheme) {
+          // Dark theme - black background
+          navbar.style.setProperty('background', 'rgba(0, 0, 0, 0.8)', 'important');
+          navbar.style.setProperty('backdrop-filter', 'blur(40px)', 'important');
+          navbar.style.setProperty('border-bottom', 'none', 'important');
+          console.log('Navbar forced to black with inline styles');
+        } else {
+          // Light theme - custom color with blur
+          navbar.style.setProperty('background', 'rgba(229, 234, 242, 0.8)', 'important');
+          navbar.style.setProperty('backdrop-filter', 'blur(40px)', 'important');
+          navbar.style.setProperty('border-bottom', 'none', 'important');
+          console.log('Navbar forced to light blue with inline styles');
+        }
+      }
+    };
+    
+    // Apply initial styling
+    applyNavbarStyling();
+    
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      applyNavbarStyling();
+    });
+    
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
     
     const handleScroll = () => {
       const navbar = document.querySelector('.navbar');
       const heroHeight = document.querySelector('.hero')?.offsetHeight || 600;
+      const isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark';
       
       if (window.scrollY > heroHeight * 0.8) {
-        // Scrolled past hero - make it #1a1a1a
+        // Scrolled past hero
         if (navbar) {
-          navbar.style.setProperty('background', '#1a1a1a', 'important');
-          navbar.style.setProperty('backdrop-filter', 'blur(30px)', 'important');
-          navbar.style.setProperty('border-bottom', '1px solid rgba(255, 255, 255, 0.1)', 'important');
+          if (isDarkTheme) {
+            // Dark theme - scrolled state
+            navbar.style.setProperty('background', '#1a1a1a', 'important');
+            navbar.style.setProperty('backdrop-filter', 'blur(30px)', 'important');
+            navbar.style.setProperty('border-bottom', '1px solid rgba(255, 255, 255, 0.1)', 'important');
+          } else {
+            // Light theme - scrolled state
+            navbar.style.setProperty('background', '#f8fafc', 'important');
+            navbar.style.setProperty('backdrop-filter', 'blur(30px)', 'important');
+            navbar.style.setProperty('border-bottom', '1px solid rgba(0, 0, 0, 0.1)', 'important');
+          }
         }
         navbar?.classList.add('navbar-scrolled');
-        console.log('Navbar scrolled - forced to #1a1a1a');
+        console.log('Navbar scrolled - theme-based styling applied');
       } else {
-        // Not scrolled - make it black with enhanced blur
+        // Not scrolled - hero state
         if (navbar) {
-          navbar.style.setProperty('background', 'rgba(0, 0, 0, 0.8)', 'important');
-          navbar.style.setProperty('backdrop-filter', 'blur(40px)', 'important');
-          navbar.style.setProperty('border-bottom', 'none', 'important');
+          if (isDarkTheme) {
+            // Dark theme - hero state
+            navbar.style.setProperty('background', 'rgba(0, 0, 0, 0.8)', 'important');
+            navbar.style.setProperty('backdrop-filter', 'blur(40px)', 'important');
+            navbar.style.setProperty('border-bottom', 'none', 'important');
+          } else {
+            // Light theme - hero state with custom color
+            navbar.style.setProperty('background', 'rgba(229, 234, 242, 0.8)', 'important');
+            navbar.style.setProperty('backdrop-filter', 'blur(40px)', 'important');
+            navbar.style.setProperty('border-bottom', 'none', 'important');
+          }
         }
         navbar?.classList.remove('navbar-scrolled');
-        console.log('Navbar not scrolled - forced to black');
+        console.log('Navbar not scrolled - theme-based styling applied');
       }
     };
 
@@ -219,12 +261,14 @@ export default function Home() {
       window.removeEventListener('scroll', handleScroll);
       document.body.classList.remove('homepage');
       document.documentElement.classList.remove('homepage');
+      observer.disconnect();
       
       // Clean up inline styles
-      if (navbar) {
-        navbar.style.removeProperty('background');
-        navbar.style.removeProperty('backdrop-filter');
-        navbar.style.removeProperty('border-bottom');
+      const cleanupNavbar = document.querySelector('.navbar');
+      if (cleanupNavbar) {
+        cleanupNavbar.style.removeProperty('background');
+        cleanupNavbar.style.removeProperty('backdrop-filter');
+        cleanupNavbar.style.removeProperty('border-bottom');
       }
     };
   }, []);

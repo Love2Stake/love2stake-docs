@@ -3,11 +3,8 @@
  * and scoped locally.
  */
 
-/* Clean navbar styling */
+/* Base navbar styling */
 :global(.navbar) {
-  background: rgba(15, 23, 42, 0.8) !important;
-  border-bottom: none !important;
-  backdrop-filter: blur(20px) !important;
   position: fixed !important;
   top: 0 !important;
   width: 100% !important;
@@ -15,32 +12,11 @@
   transition: all 0.3s ease !important;
 }
 
-:global(.navbar.navbar-scrolled) {
-  background: rgba(26, 26, 26, 0.95) !important;
-  backdrop-filter: blur(30px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-:global(.navbar::after) {
-  content: '' !important;
-  position: absolute !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 1px !important;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%) !important;
-  opacity: 0 !important;
-  transition: opacity 0.3s ease !important;
-}
-
-:global(.navbar.navbar-scrolled::after) {
-  opacity: 0 !important;
-}
-
-/* Default navbar for all pages */
+/* Default navbar for all pages - dark mode */
 :global([data-theme='dark'] .navbar) {
   background: #1a1a1a !important;
   border-bottom: none !important;
+  backdrop-filter: none !important;
 }
 
 :global([data-theme='dark'] .navbar.navbar-scrolled) {
@@ -49,17 +25,19 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
+/* Default navbar for all pages - light mode */
 :global([data-theme='light'] .navbar) {
-  background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.95) 70%, rgba(255, 255, 255, 0.8) 100%) !important;
+  background: #f8fafc !important;
   border-bottom: none !important;
-  backdrop-filter: blur(20px) !important;
+  backdrop-filter: none !important;
 }
 
 :global([data-theme='light'] .navbar.navbar-scrolled) {
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: #f8fafc !important;
   backdrop-filter: blur(30px) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
+
 
 /* Global dark mode styling for documentation pages */
 :global([data-theme='dark']) {
@@ -74,7 +52,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, #0f172a 0%, #1a1a1a 70%, #0b0b0b 100%);
+  background: linear-gradient(180deg, #0f172a 0%, #1a1a1a 50%, #0b0b0b 100%);
   min-height: 600px;
   display: flex;
   align-items: center;
@@ -158,6 +136,26 @@
   color: #ffffff;
 }
 
+/* Light theme button styling */
+[data-theme='light'] .customButton {
+  background: rgba(248, 250, 252, 0.9);
+  color: #1e293b;
+  border: 1px solid rgba(30, 41, 59, 0.15);
+  box-shadow: 0 12px 32px rgba(30, 41, 59, 0.15);
+}
+
+[data-theme='light'] .customButton::before {
+  background: linear-gradient(135deg, rgba(45, 122, 79, 0.08) 0%, transparent 50%);
+}
+
+[data-theme='light'] .customButton:hover {
+  transform: translateY(-6px);
+  border-color: rgba(45, 122, 79, 0.4);
+  box-shadow: 0 20px 48px rgba(30, 41, 59, 0.25);
+  text-decoration: none;
+  color: #1e293b;
+}
+
 
 .communitySection {
   padding: 6rem 1rem;
@@ -166,8 +164,8 @@
 }
 
 [data-theme='light'] .communitySection {
-  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
-  border-top: none;
+  background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 50%, #b4c6d7 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .communitySection h3 {
@@ -221,7 +219,7 @@
 
 /* Light theme adjustments for hero */
 [data-theme='light'] .heroBanner {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+  background: linear-gradient(180deg, #e2e8f0 0%, #f1f5f9 50%, #f8fafc 100%);
 }
 
 [data-theme='light'] .heroBanner .hero__title {
@@ -319,6 +317,7 @@
   position: relative;
 }
 
+
 .sectionHeader {
   text-align: center;
   margin-bottom: 4rem;
@@ -344,8 +343,9 @@
 
 /* Light theme features section */
 [data-theme='light'] .featuresSection {
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
 }
+
 
 [data-theme='light'] .sectionHeader h2 {
   color: #1e293b;
@@ -469,7 +469,7 @@
 /* Updated Quick Links - Modern Grid */
 .quickLinks {
   padding: 6rem 1rem;
-  background: linear-gradient(180deg, #090909 0%, #060606 50%, #040404 100%);
+  background: linear-gradient(180deg, #0b0b0b 0%, #080808 50%, #090909 100%);
   position: relative;
 }
 
@@ -552,7 +552,7 @@
 
 /* Light theme quick links */
 [data-theme='light'] .quickLinks {
-  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 50%, #f8fafc 100%);
 }
 
 [data-theme='light'] .quickLinkCard {
