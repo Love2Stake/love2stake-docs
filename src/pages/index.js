@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -5,6 +6,7 @@ import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import BlockchainAnimation from '../components/BlockchainAnimation';
 import styles from './index.module.css';
+import '../css/homepage-navbar.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
@@ -170,6 +172,63 @@ function CommunitySection() {
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
+  
+  useEffect(() => {
+    // Add homepage class to both body and html
+    document.body.classList.add('homepage');
+    document.documentElement.classList.add('homepage');
+    
+    // Force navbar styling with inline styles
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      // Set initial black background with enhanced blur
+      navbar.style.setProperty('background', 'rgba(0, 0, 0, 0.8)', 'important');
+      navbar.style.setProperty('backdrop-filter', 'blur(40px)', 'important');
+      navbar.style.setProperty('border-bottom', 'none', 'important');
+      console.log('Navbar forced to black with inline styles');
+    }
+    
+    const handleScroll = () => {
+      const navbar = document.querySelector('.navbar');
+      const heroHeight = document.querySelector('.hero')?.offsetHeight || 600;
+      
+      if (window.scrollY > heroHeight * 0.8) {
+        // Scrolled past hero - make it #1a1a1a
+        if (navbar) {
+          navbar.style.setProperty('background', '#1a1a1a', 'important');
+          navbar.style.setProperty('backdrop-filter', 'blur(30px)', 'important');
+          navbar.style.setProperty('border-bottom', '1px solid rgba(255, 255, 255, 0.1)', 'important');
+        }
+        navbar?.classList.add('navbar-scrolled');
+        console.log('Navbar scrolled - forced to #1a1a1a');
+      } else {
+        // Not scrolled - make it black with enhanced blur
+        if (navbar) {
+          navbar.style.setProperty('background', 'rgba(0, 0, 0, 0.8)', 'important');
+          navbar.style.setProperty('backdrop-filter', 'blur(40px)', 'important');
+          navbar.style.setProperty('border-bottom', 'none', 'important');
+        }
+        navbar?.classList.remove('navbar-scrolled');
+        console.log('Navbar not scrolled - forced to black');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.classList.remove('homepage');
+      document.documentElement.classList.remove('homepage');
+      
+      // Clean up inline styles
+      if (navbar) {
+        navbar.style.removeProperty('background');
+        navbar.style.removeProperty('backdrop-filter');
+        navbar.style.removeProperty('border-bottom');
+      }
+    };
+  }, []);
+  
   return (
     <Layout
       title={`Welcome to ${siteConfig.title}`}

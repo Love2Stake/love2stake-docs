@@ -1,0 +1,28 @@
+/* Homepage navbar overrides - separate CSS file for maximum specificity */
+
+/* Force black navbar on homepage before scroll */
+html[data-theme='dark'] body.homepage .navbar:not(.navbar-scrolled) {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: none !important;
+}
+
+/* Scrolled state on homepage */
+html[data-theme='dark'] body.homepage .navbar.navbar-scrolled {
+  background: #1a1a1a !important;
+  backdrop-filter: blur(30px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Alternative selectors in case the above don't work */
+[data-theme='dark'] body.homepage .navbar {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: none !important;
+}
+
+[data-theme='dark'] body.homepage .navbar.navbar-scrolled {
+  background: #1a1a1a !important;
+  backdrop-filter: blur(30px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
