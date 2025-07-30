@@ -20,12 +20,12 @@ function HomepageHeader() {
         </p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className={styles.customButton}
             to="/docs/getting-started">
             Documentation
           </Link>
           <Link
-            className="button button--secondary button--lg"
+            className={styles.customButton}
             to="/docs/getting-started">
             Delegate to LOVE2
           </Link>
@@ -35,58 +35,94 @@ function HomepageHeader() {
   );
 }
 
+
+function FeaturesSection() {
+  const features = [
+    {
+      title: 'Zero Fee Staking',
+      description: 'Maximize your rewards with our 0% fee structure. Every ADA you earn stays in your pocket.',
+      icon: '💎',
+      gradient: 'from-blue-500 to-purple-600'
+    },
+    {
+      title: 'Enterprise Security',
+      description: 'Military-grade infrastructure with 24/7 monitoring and automated failover systems.',
+      icon: '🛡️',
+      gradient: 'from-green-500 to-teal-600'
+    },
+    {
+      title: 'Developer APIs',
+      description: 'Build on Cardano with our comprehensive APIs, SDKs, and developer tools.',
+      icon: '⚡',
+      gradient: 'from-orange-500 to-red-600'
+    },
+  ];
+
+  return (
+    <section className={styles.featuresSection}>
+      <div className="container">
+        <div className={styles.sectionHeader}>
+          <h2>Why Choose Love2Stake</h2>
+          <p>Built for the future of decentralized finance</p>
+        </div>
+        <div className={styles.featuresGrid}>
+          {features.map((feature, idx) => (
+            <div key={idx} className={styles.featureCard}>
+              <div className={styles.featureIcon}>{feature.icon}</div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+              <div className={styles.featureGlow}></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function QuickLinks() {
   const links = [
     {
       title: 'Get Started',
-      description: 'Get an overview of Love2Stake, understand the components, discover builder tools, learn technical concepts and connect to the developer community.',
+      description: 'Complete guides for developers and delegators to start building on Cardano.',
       to: '/docs/getting-started',
       icon: '🚀',
     },
     {
-      title: 'Integrate Love2Stake',
-      description: 'Explore Love2Stake APIs and learn how to integrate staking functionality into applications and websites.',
-      to: '/docs/getting-started',
-      icon: '🔗',
+      title: 'Stake Pool Setup',
+      description: 'Learn how to set up and manage your own Cardano stake pool infrastructure.',
+      to: '/docs/how-to-set-up-a-cardano-stake-pool',
+      icon: '⚙️',
     },
     {
-      title: 'Build with APIs',
-      description: 'Learn about our REST and GraphQL APIs, authentication, rate limiting and how to build production applications.',
+      title: 'API Documentation',
+      description: 'Comprehensive REST and GraphQL API documentation for developers.',
       to: '/docs/getting-started',
-      icon: '⚡',
+      icon: '📚',
     },
     {
-      title: 'Pool Management',
-      description: 'Discover automated pool management tools, monitoring systems, and best practices for stake pool operators.',
+      title: 'Community',
+      description: 'Join our Discord community and connect with other Cardano developers.',
       to: '/docs/getting-started',
-      icon: '🏊‍♂️',
-    },
-    {
-      title: 'Delegation Tools',
-      description: 'Learn how to implement delegation features, reward tracking, and portfolio management for your users.',
-      to: '/docs/getting-started',
-      icon: '💰',
-    },
-    {
-      title: 'Developer Resources',
-      description: 'Access code examples, SDKs, testing environments, and community resources to accelerate your development.',
-      to: '/docs/getting-started',
-      icon: '🛠️',
+      icon: '👥',
     },
   ];
 
   return (
     <section className={styles.quickLinks}>
       <div className="container">
-        <div className="row">
+        <div className={styles.sectionHeader}>
+          <h2>Developer Resources</h2>
+          <p>Everything you need to build on Cardano</p>
+        </div>
+        <div className={styles.quickLinksGrid}>
           {links.map((link, idx) => (
-            <div key={idx} className="col col--4 margin-bottom--lg">
-              <Link to={link.to} className={styles.quickLinkCard}>
-                <div className={styles.quickLinkIcon}>{link.icon}</div>
-                <h3>{link.title}</h3>
-                <p>{link.description}</p>
-              </Link>
-            </div>
+            <Link key={idx} to={link.to} className={styles.quickLinkCard}>
+              <div className={styles.quickLinkIcon}>{link.icon}</div>
+              <h3>{link.title}</h3>
+              <p>{link.description}</p>
+              <div className={styles.cardArrow}>→</div>
+            </Link>
           ))}
         </div>
       </div>
@@ -140,6 +176,7 @@ export default function Home() {
       description="Love2Stake Developer Portal - Complete guides, API references, and resources for developers">
       <HomepageHeader />
       <main>
+        <FeaturesSection />
         <QuickLinks />
         <CommunitySection />
       </main>
