@@ -69,8 +69,10 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
-          {to: '/showcase', label: 'Showcase', position: 'left'},
-          {to: '/change-log', label: 'Change Log', position: 'left'},
+          // Commented out showcase and change-log because they are not ready yet.
+          
+          // {to: '/showcase', label: 'Showcase', position: 'left'},
+          // {to: '/change-log', label: 'Change Log', position: 'left'},
           {
             href: 'https://github.com/Love2Stake',
             className: 'header-github-link',
