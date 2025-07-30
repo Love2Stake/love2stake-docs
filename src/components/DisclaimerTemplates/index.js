@@ -10,8 +10,8 @@ import Disclaimer from '@site/src/components/Disclaimer';
 export function StakePoolDisclaimer() {
   return (
     <Disclaimer type="information">
-      If you find this project useful, please consider supporting it by delegating your ADA to the LOVE2 stake pool or by sending a contribution to the following address:
-      <br/><br />
+      If you find this project useful, please consider supporting it by delegating your ADA to the <strong>LOVE2</strong> stake pool or by sending a contribution to the following address:
+      <br /><br />
       <code style={{
         display: 'block',
         padding: '8px 12px',

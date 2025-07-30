@@ -52,3 +52,121 @@
 .skipToContent_fXgn {
   display: none !important;
 }
+
+/* Code block word wrapping styles */
+pre code,
+.prism-code,
+code[class*="language-"],
+pre[class*="language-"] {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Ensure inline code also wraps */
+code {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+}
+
+/* Disable copy/paste for specific code blocks */
+.no-copy,
+.no-copy *,
+div[class*="codeBlockContainer"] .no-copy,
+div[class*="codeBlock"] .no-copy {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+/* Target Docusaurus specific code block elements */
+div[class*="codeBlockContainer"].no-copy,
+div[class*="codeBlockContainer"].no-copy code,
+div[class*="codeBlockContainer"].no-copy pre,
+div[class*="codeBlock"].no-copy,
+div[class*="codeBlock"].no-copy code,
+div[class*="codeBlock"].no-copy pre,
+.prism-code.no-copy,
+.prism-code.no-copy code,
+.theme-code-block.no-copy,
+.theme-code-block.no-copy code {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+/* Hide copy button for no-copy blocks - target multiple possible button classes */
+.no-copy button,
+.no-copy [class*="copyButton"],
+.no-copy [class*="button"],
+div[class*="codeBlockContainer"].no-copy button,
+div[class*="codeBlock"].no-copy button,
+.theme-code-block.no-copy button,
+.prism-code.no-copy button {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Alternative: Read-only styling */
+.read-only,
+.read-only *,
+div[class*="codeBlockContainer"].read-only,
+div[class*="codeBlock"].read-only {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  opacity: 0.7;
+  position: relative;
+}
+
+.read-only::before,
+div[class*="codeBlockContainer"].read-only::before,
+div[class*="codeBlock"].read-only::before {
+  content: "🔒 Read Only";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  z-index: 10;
+}
+
+/* Additional fallback - disable text selection globally on no-copy elements */
+*[class*="no-copy"] {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+/* Disable context menu on no-copy elements */
+.no-copy,
+.read-only {
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+.no-copy::-moz-selection,
+.read-only::-moz-selection {
+  background: transparent !important;
+}
+
+.no-copy::selection,
+.read-only::selection {
+  background: transparent !important;
+}
