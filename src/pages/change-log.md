@@ -1,11 +1,7 @@
----
-title: Change Log
----
+import { DisclaimerTemplates } from '@site/src/components/DisclaimerTemplates'
 
 # Change Log
 
-This page will document all changes and updates to the Love2Stake project.
+This still needs to be implemented, you should not be here...
 
-## Recent Updates
-
-- Initial documentation setup
+<DisclaimerTemplates.StakePool />

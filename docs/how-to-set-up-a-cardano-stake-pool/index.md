@@ -5,12 +5,12 @@ import { DisclaimerTemplates } from '@site/src/components/DisclaimerTemplates';
 This guide explains how to install a Cardano stake pool using the Love2Automate tool and configure a Cardano stake pool on a Ubuntu/Debian system in a two-node setup of one block-producing node and one relay node. 
 
 
-# Any Issues?
+### Any Issues?
 
 If you find that there are any issues with the guide, feel free to contribute to the <a href="github.com/Love2Stake/love2stake-docs">documentation repository</a> or the <a href="github.com/Love2Stake/love2automate-ada">Love2Automate repository</a>, otherwise please contact us on any of our socials that can be found on the <a href="/docs/about-us">About Us</a> page.
 
 
-# Introduction
+### Introduction
 
 The <i>How to Set Up a Cardano Stake Pool</i> guide aims to provide a thorough, yet simple, list of step-by-step instructions to set up a Cardano stake pool.
 

@@ -1,15 +1,19 @@
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
+import BlockchainAnimation from '../components/BlockchainAnimation';
 import styles from './index.module.css';
+import '../css/homepage-navbar.css';
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
+    <header className={clsx('hero', styles.heroBanner)}>
+      <BlockchainAnimation />
+      <div className={clsx("container", styles.heroContent)}>
         <Heading as="h1" className="hero__title">
           Love2Stake
         </Heading>
@@ -18,12 +22,12 @@ function HomepageHeader() {
         </p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className={styles.customButton}
             to="/docs/getting-started">
             Documentation
           </Link>
           <Link
-            className="button button--secondary button--lg"
+            className={styles.customButton}
             to="/docs/getting-started">
             Delegate to LOVE2
           </Link>
@@ -33,58 +37,94 @@ function HomepageHeader() {
   );
 }
 
+
+function FeaturesSection() {
+  const features = [
+    {
+      title: 'Zero Fee Staking',
+      description: 'Maximize your rewards with our 0% fee structure. Every ADA you earn stays in your pocket.',
+      icon: '💎',
+      gradient: 'from-blue-500 to-purple-600'
+    },
+    {
+      title: 'Enterprise Security',
+      description: 'Military-grade infrastructure with 24/7 monitoring and automated failover systems.',
+      icon: '🛡️',
+      gradient: 'from-green-500 to-teal-600'
+    },
+    {
+      title: 'Developer APIs',
+      description: 'Build on Cardano with our comprehensive APIs, SDKs, and developer tools.',
+      icon: '⚡',
+      gradient: 'from-orange-500 to-red-600'
+    },
+  ];
+
+  return (
+    <section className={styles.featuresSection}>
+      <div className="container">
+        <div className={styles.sectionHeader}>
+          <h2>Why Choose Love2Stake</h2>
+          <p>Built for the future of decentralized finance</p>
+        </div>
+        <div className={styles.featuresGrid}>
+          {features.map((feature, idx) => (
+            <div key={idx} className={styles.featureCard}>
+              <div className={styles.featureIcon}>{feature.icon}</div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+              <div className={styles.featureGlow}></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function QuickLinks() {
   const links = [
     {
       title: 'Get Started',
-      description: 'Get an overview of Love2Stake, understand the components, discover builder tools, learn technical concepts and connect to the developer community.',
+      description: 'Complete guides for developers and delegators to start building on Cardano.',
       to: '/docs/getting-started',
       icon: '🚀',
     },
     {
-      title: 'Integrate Love2Stake',
-      description: 'Explore Love2Stake APIs and learn how to integrate staking functionality into applications and websites.',
-      to: '/docs/getting-started',
-      icon: '🔗',
+      title: 'Stake Pool Setup',
+      description: 'Learn how to set up and manage your own Cardano stake pool infrastructure.',
+      to: '/docs/how-to-set-up-a-cardano-stake-pool',
+      icon: '⚙️',
     },
     {
-      title: 'Build with APIs',
-      description: 'Learn about our REST and GraphQL APIs, authentication, rate limiting and how to build production applications.',
+      title: 'API Documentation',
+      description: 'Comprehensive REST and GraphQL API documentation for developers.',
       to: '/docs/getting-started',
-      icon: '⚡',
+      icon: '📚',
     },
     {
-      title: 'Pool Management',
-      description: 'Discover automated pool management tools, monitoring systems, and best practices for stake pool operators.',
+      title: 'Community',
+      description: 'Join our Discord community and connect with other Cardano developers.',
       to: '/docs/getting-started',
-      icon: '🏊‍♂️',
-    },
-    {
-      title: 'Delegation Tools',
-      description: 'Learn how to implement delegation features, reward tracking, and portfolio management for your users.',
-      to: '/docs/getting-started',
-      icon: '💰',
-    },
-    {
-      title: 'Developer Resources',
-      description: 'Access code examples, SDKs, testing environments, and community resources to accelerate your development.',
-      to: '/docs/getting-started',
-      icon: '🛠️',
+      icon: '👥',
     },
   ];
 
   return (
     <section className={styles.quickLinks}>
       <div className="container">
-        <div className="row">
+        <div className={styles.sectionHeader}>
+          <h2>Developer Resources</h2>
+          <p>Everything you need to build on Cardano</p>
+        </div>
+        <div className={styles.quickLinksGrid}>
           {links.map((link, idx) => (
-            <div key={idx} className="col col--4 margin-bottom--lg">
-              <Link to={link.to} className={styles.quickLinkCard}>
-                <div className={styles.quickLinkIcon}>{link.icon}</div>
-                <h3>{link.title}</h3>
-                <p>{link.description}</p>
-              </Link>
-            </div>
+            <Link key={idx} to={link.to} className={styles.quickLinkCard}>
+              <div className={styles.quickLinkIcon}>{link.icon}</div>
+              <h3>{link.title}</h3>
+              <p>{link.description}</p>
+              <div className={styles.cardArrow}>→</div>
+            </Link>
           ))}
         </div>
       </div>
@@ -132,12 +172,114 @@ function CommunitySection() {
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
+  
+  useEffect(() => {
+    // Add homepage class to both body and html
+    document.body.classList.add('homepage');
+    document.documentElement.classList.add('homepage');
+    
+    const applyNavbarStyling = () => {
+      // Force navbar styling with inline styles based on theme
+      const navbar = document.querySelector('.navbar');
+      const isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark';
+      
+      if (navbar) {
+        if (isDarkTheme) {
+          // Dark theme - black background
+          navbar.style.setProperty('background', 'rgba(0, 0, 0, 0.8)', 'important');
+          navbar.style.setProperty('backdrop-filter', 'blur(40px)', 'important');
+          navbar.style.setProperty('border-bottom', 'none', 'important');
+          console.log('Navbar forced to black with inline styles');
+        } else {
+          // Light theme - custom color with blur
+          navbar.style.setProperty('background', 'rgba(229, 234, 242, 0.8)', 'important');
+          navbar.style.setProperty('backdrop-filter', 'blur(40px)', 'important');
+          navbar.style.setProperty('border-bottom', 'none', 'important');
+          console.log('Navbar forced to light blue with inline styles');
+        }
+      }
+    };
+    
+    // Apply initial styling
+    applyNavbarStyling();
+    
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      applyNavbarStyling();
+    });
+    
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+    
+    const handleScroll = () => {
+      const navbar = document.querySelector('.navbar');
+      const heroHeight = document.querySelector('.hero')?.offsetHeight || 600;
+      const isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark';
+      
+      if (window.scrollY > heroHeight * 0.8) {
+        // Scrolled past hero
+        if (navbar) {
+          if (isDarkTheme) {
+            // Dark theme - scrolled state
+            navbar.style.setProperty('background', '#1a1a1a', 'important');
+            navbar.style.setProperty('backdrop-filter', 'blur(30px)', 'important');
+            navbar.style.setProperty('border-bottom', '1px solid rgba(255, 255, 255, 0.1)', 'important');
+          } else {
+            // Light theme - scrolled state
+            navbar.style.setProperty('background', '#f8fafc', 'important');
+            navbar.style.setProperty('backdrop-filter', 'blur(30px)', 'important');
+            navbar.style.setProperty('border-bottom', '1px solid rgba(0, 0, 0, 0.1)', 'important');
+          }
+        }
+        navbar?.classList.add('navbar-scrolled');
+        console.log('Navbar scrolled - theme-based styling applied');
+      } else {
+        // Not scrolled - hero state
+        if (navbar) {
+          if (isDarkTheme) {
+            // Dark theme - hero state
+            navbar.style.setProperty('background', 'rgba(0, 0, 0, 0.8)', 'important');
+            navbar.style.setProperty('backdrop-filter', 'blur(40px)', 'important');
+            navbar.style.setProperty('border-bottom', 'none', 'important');
+          } else {
+            // Light theme - hero state with custom color
+            navbar.style.setProperty('background', 'rgba(229, 234, 242, 0.8)', 'important');
+            navbar.style.setProperty('backdrop-filter', 'blur(40px)', 'important');
+            navbar.style.setProperty('border-bottom', 'none', 'important');
+          }
+        }
+        navbar?.classList.remove('navbar-scrolled');
+        console.log('Navbar not scrolled - theme-based styling applied');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.classList.remove('homepage');
+      document.documentElement.classList.remove('homepage');
+      observer.disconnect();
+      
+      // Clean up inline styles
+      const cleanupNavbar = document.querySelector('.navbar');
+      if (cleanupNavbar) {
+        cleanupNavbar.style.removeProperty('background');
+        cleanupNavbar.style.removeProperty('backdrop-filter');
+        cleanupNavbar.style.removeProperty('border-bottom');
+      }
+    };
+  }, []);
+  
   return (
     <Layout
       title={`Welcome to ${siteConfig.title}`}
       description="Love2Stake Developer Portal - Complete guides, API references, and resources for developers">
       <HomepageHeader />
       <main>
+        <FeaturesSection />
         <QuickLinks />
         <CommunitySection />
       </main>
