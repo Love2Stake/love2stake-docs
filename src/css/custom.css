@@ -30,6 +30,8 @@
   --ifm-color-primary-lighter: #b1f3ca;
   --ifm-color-primary-lightest: #c0f6d3;
   --docusaurus-highlighted-code-line-bg: rgba(144, 235, 175, 0.2);
+  --ifm-background-color: #0b0b0b !important;
+  --ifm-background-surface-color: #0b0b0b !important;
 }
 
 .header-github-link:hover {
@@ -169,4 +171,111 @@ div[class*="codeBlock"].read-only::before {
 .no-copy::selection,
 .read-only::selection {
   background: transparent !important;
+}
+
+/* Documentation page heading spacing - add space between navbar and headings */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  margin-top: 2rem !important;
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem) !important;
+}
+
+/* First heading on page needs extra space from navbar */
+.markdown > h1:first-child,
+.theme-doc-markdown > h1:first-child,
+article h1:first-child {
+  margin-top: 3rem !important;
+  padding-top: 1rem !important;
+}
+
+/* Ensure proper spacing for doc content container */
+.theme-doc-markdown,
+.markdown {
+  padding-top: 1rem !important;
+}
+
+/* Additional spacing for doc page titles */
+.theme-doc-markdown h1,
+.markdown h1 {
+  margin-top: 2.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .markdown h1,
+  .markdown h2,
+  .markdown h3,
+  .markdown h4,
+  .markdown h5,
+  .markdown h6 {
+    margin-top: 1.5rem !important;
+    scroll-margin-top: calc(var(--ifm-navbar-height) + 0.5rem) !important;
+  }
+  
+  .markdown > h1:first-child,
+  .theme-doc-markdown > h1:first-child,
+  article h1:first-child {
+    margin-top: 2rem !important;
+    padding-top: 0.5rem !important;
+  }
+}
+
+/* Dark mode code block styling - make code blocks moderately darker */
+[data-theme='dark'] pre,
+[data-theme='dark'] code,
+[data-theme='dark'] .prism-code,
+[data-theme='dark'] div[class*="codeBlockContainer"],
+[data-theme='dark'] div[class*="codeBlock"],
+[data-theme='dark'] .theme-code-block {
+  background-color: #1a1a1a !important;
+  border: 1px solid #2a2a2a !important;
+  box-shadow: 0 0 20px rgba(45, 122, 79, 0.15), 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme='dark'] pre code,
+[data-theme='dark'] .prism-code code {
+  background-color: transparent !important;
+}
+
+/* Inline code styling for dark mode */
+[data-theme='dark'] code:not(pre code) {
+  background-color: #1f1f1f !important;
+  border: 1px solid #2a2a2a !important;
+  color: #e2e8f0 !important;
+  padding: 0.2rem 0.4rem !important;
+  border-radius: 3px !important;
+}
+
+/* Code block title bar in dark mode */
+[data-theme='dark'] div[class*="codeBlockTitle"] {
+  background-color: #151515 !important;
+  border-bottom: 1px solid #2a2a2a !important;
+  color: #94a3b8 !important;
+}
+
+/* Copy button styling in dark mode */
+[data-theme='dark'] button[class*="copyButton"] {
+  background-color: #1f1f1f !important;
+  border: 1px solid #2a2a2a !important;
+  color: #94a3b8 !important;
+}
+
+[data-theme='dark'] button[class*="copyButton"]:hover {
+  background-color: #2a2a2a !important;
+  border-color: #3a3a3a !important;
+}
+
+/* Light mode code block styling - add glow effect */
+[data-theme='light'] pre,
+[data-theme='light'] code,
+[data-theme='light'] .prism-code,
+[data-theme='light'] div[class*="codeBlockContainer"],
+[data-theme='light'] div[class*="codeBlock"],
+[data-theme='light'] .theme-code-block {
+  box-shadow: 0 0 20px rgba(45, 122, 79, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05) !important;
 }
