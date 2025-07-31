@@ -61,18 +61,16 @@
     padding: 0 1rem !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: space-between !important;
+    justify-content: center !important;
+    position: relative !important;
   }
   
-  /* Move hamburger to the left side */
+  /* Center the Love2Stake logo on mobile */
   :global(.navbar__brand) {
-    order: 0 !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  
-  :global(.navbar__items--right) {
-    order: 1 !important;
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
   }
   
   /* Fix mobile menu toggle button */
@@ -82,9 +80,16 @@
     background: none !important;
     border: none !important;
     padding: 0.5rem !important;
-    margin-right: auto !important;
-    margin-left: 0 !important;
-    order: -1 !important;
+    margin-right: 0 !important;
+    position: relative !important;
+    z-index: 10 !important;
+  }
+  
+  /* Keep right-side items on the right */
+  :global(.navbar__items--right) {
+    margin-left: auto !important;
+    position: relative !important;
+    z-index: 10 !important;
   }
   
   /* Ensure mobile sidebar items are properly styled */
