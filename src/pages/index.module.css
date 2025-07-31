@@ -236,6 +236,94 @@
 
 /* Responsive design */
 @media screen and (max-width: 996px) {
+  /* Fix mobile navbar layout */
+  :global(.navbar__inner) {
+    max-width: none !important;
+    width: 100% !important;
+    padding: 0 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  /* Hamburger menu positioning */
+  :global(.navbar__toggle) {
+    display: flex !important;
+    color: inherit !important;
+    background: none !important;
+    border: none !important;
+    padding: 0.5rem !important;
+    order: -1 !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+  
+  /* Center brand/logo */
+  :global(.navbar__brand) {
+    order: 0 !important;
+    flex: 1 !important;
+    justify-content: center !important;
+    display: flex !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Right side items */
+  :global(.navbar__items--right) {
+    order: 1 !important;
+  }
+  
+  /* Fix mobile sidebar */
+  :global(.navbar-sidebar) {
+    background: var(--ifm-navbar-background-color) !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: var(--ifm-navbar-sidebar-width, 83vw) !important;
+    height: 100vh !important;
+    height: 100dvh !important; /* Dynamic viewport height for mobile */
+    z-index: 9999 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  
+  :global([data-theme='dark'] .navbar-sidebar) {
+    background: #1a1a1a !important;
+  }
+  
+  :global([data-theme='light'] .navbar-sidebar) {
+    background: #ffffff !important;
+  }
+  
+  /* Ensure sidebar menu items are visible */
+  :global(.navbar-sidebar .menu) {
+    padding: 1rem !important;
+  }
+  
+  :global(.navbar-sidebar .menu__link) {
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem !important;
+    color: var(--ifm-menu-color) !important;
+    display: block !important;
+  }
+  
+  :global(.navbar-sidebar .menu__link:hover) {
+    background: var(--ifm-menu-color-background-hover) !important;
+  }
+  
+  /* Fix homepage navbar transparency issue */
+  :global(body.homepage .navbar-sidebar) {
+    background: var(--ifm-navbar-background-color) !important;
+  }
+  
+  :global([data-theme='dark'] body.homepage .navbar-sidebar) {
+    background: #1a1a1a !important;
+  }
+  
+  :global([data-theme='light'] body.homepage .navbar-sidebar) {
+    background: #ffffff !important;
+  }
+
   .heroBanner {
     padding: 4rem 0;
     min-height: 400px;
