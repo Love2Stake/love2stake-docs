@@ -29,6 +29,9 @@ rm "$ASSET_NAME"
 
 # Make the binary executable
 chmod +x love2automate-ada
+
+# Move Love2Automate so it is globally available
+sudo mv love2automate-ada /usr/local/bin # Requires sudo
 ```
 
 
@@ -37,13 +40,13 @@ chmod +x love2automate-ada
 The following command will updating the package index, install ```pip3``` and ```pipx```, set environment variables, install Ansible, and then install the required Ansible collections. These dependencies are required to run other commands in this program.
 
 ```bash
-./love2automate-ada --setup-deps
+love2automate-ada --setup-deps
 ```
 <br />
 The end of your terminal output for this command should look something like this. Ensure that the ```source ~/.bashrc``` is executed or restart your terminal as it will immediately apply environment variable changes to the current terminal.
 
 <TerminalOutput 
-  content={`user@hostname:~/directory$ ./love2automate-ada --setup-deps
+  content={`user@hostname:~/directory$ love2automate-ada --setup-deps
 ✓ Dependencies setup completed successfully!
 
 ⚠️  IMPORTANT: You MUST restart your terminal or run 'source ~/.bashrc' for PATH changes to take effect.
@@ -59,7 +62,7 @@ Next steps:
 This command will pull all Ansible playbooks from the <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate GitHub repository</a> and store them in ```/opt/love2automate-ada/```.
 ```bash
 # sudo is REQUIRED for this command
-sudo ./love2automate-ada --setup
+sudo love2automate-ada --setup
 ```
 <br />
 
@@ -67,13 +70,13 @@ sudo ./love2automate-ada --setup
 
 This command will begin installing the Cardano Node and its required dependencies using the Ansible playbooks that were pulled from the <a href="https://github.com/Love2Stake/love2automate-ada">repository</a>.
 ```bash
-./love2automate-ada --install cardano-node
+love2automate-ada --install cardano-node
 ```
 
 The beginning of the terminal output for the installation of the Cardano node should look like this:
 
 <TerminalOutput 
-  content={`user@hostname:~/love2automate$ ./love2automate-ada --install cardano-node
+  content={`user@hostname:~/love2automate$ love2automate-ada --install cardano-node
 Installing cardano-node...
 Checking prerequisites...
 Checking Ansible installation... ✓ FOUND
