@@ -236,7 +236,7 @@
 
 /* Responsive design */
 @media screen and (max-width: 996px) {
-  /* Fix mobile navbar layout */
+  /* Fix mobile navbar layout - 3 column layout */
   :global(.navbar__inner) {
     max-width: none !important;
     width: 100% !important;
@@ -244,28 +244,89 @@
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
+    position: relative !important;
   }
   
-  /* Hamburger menu positioning */
+  /* Make mobile navbar darker */
+  :global(.navbar) {
+    background: #0b0b0b !important;
+  }
+  
+  /* Hamburger menu positioning - left side */
   :global(.navbar__toggle) {
     display: flex !important;
     color: inherit !important;
     background: none !important;
     border: none !important;
     padding: 0.5rem !important;
-    order: -1 !important;
-    margin-right: 0 !important;
-    margin-left: 0 !important;
+    order: 1 !important;
+    flex-shrink: 0 !important;
   }
   
-  /* Center brand/logo */
+  /* Center brand/logo - horizontally centered, vertically aligned */
   :global(.navbar__brand) {
-    order: 0 !important;
-    flex: 1 !important;
-    justify-content: center !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 0 !important;
+    transform: translateX(-50%) !important;
     display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+    order: 2 !important;
+  }
+  
+  /* Right side items - dark/light mode toggle */
+  :global(.navbar__items--right) {
+    order: 3 !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  /* When mobile sidebar is open, center brand in sidebar */
+  :global(.navbar-sidebar--show .navbar__brand) {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    height: auto !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    order: 0 !important;
+  }
+  
+  /* Hide the main navbar brand when sidebar is open */
+  :global(.navbar-sidebar--show .navbar__inner .navbar__brand) {
+    display: none !important;
+  }
+  
+  /* Keep logo and title together as one unit */
+  :global(.navbar__brand .navbar__logo) {
+    margin-right: 0.5rem !important;
     margin-left: 0 !important;
-    margin-right: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  
+  :global(.navbar__brand .navbar__title) {
+    margin: 0 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* Right side items */
+  :global(.navbar__items--right) {
+    grid-column: 3 !important;
+    justify-self: end !important;
+    display: flex !important;
+    align-items: center !important;
   }
   
   /* Right side items */
