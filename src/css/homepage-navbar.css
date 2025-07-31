@@ -32,7 +32,7 @@ html[data-theme='dark'] body.homepage .navbar.navbar-scrolled {
   /* Fix homepage mobile sidebar layout and positioning */
   html[data-theme='dark'] body.homepage .navbar-sidebar,
   [data-theme='dark'] body.homepage .navbar-sidebar {
-    background: #1a1a1a !important;
+    background: #0b0b0b !important;
     backdrop-filter: none !important;
     position: fixed !important;
     top: 0 !important;
