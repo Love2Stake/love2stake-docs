@@ -56,6 +56,7 @@
   min-height: 600px;
   display: flex;
   align-items: center;
+  margin-top: var(--ifm-navbar-height) !important;
 }
 
 .heroContent {
@@ -250,6 +251,39 @@
   /* Make mobile navbar darker */
   :global(.navbar) {
     background: #0b0b0b !important;
+  }
+  
+  /* Fix documentation pages - add spacing below navbar */
+  :global(.main-wrapper) {
+    margin-top: var(--ifm-navbar-height) !important;
+  }
+  
+  /* Fix breadcrumbs positioning on mobile */
+  :global(.breadcrumbs) {
+    margin-top: 1rem !important;
+  }
+  
+  /* Ensure documentation content is below navbar */
+  :global(.theme-doc-wrapper) {
+    padding-top: 0.5rem !important;
+  }
+  
+  /* Remove all padding on h1 elements */
+  :global(.markdown h1) {
+    padding: 0 !important;
+    margin-top: 1rem !important;
+  }
+  
+  /* Remove all padding on markdown content container */
+  :global(.theme-doc-markdown) {
+    padding: 0 !important;
+  }
+  
+  /* Remove padding on first h1 in markdown */
+  :global(.markdown > h1:first-child),
+  :global(.theme-doc-markdown > h1:first-child) {
+    margin-top: 0.5rem !important;
+    padding: 0 !important;
   }
   
   /* Hamburger menu positioning - left side */
