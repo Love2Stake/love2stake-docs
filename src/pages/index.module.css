@@ -56,6 +56,7 @@
   min-height: 600px;
   display: flex;
   align-items: center;
+  margin-top: 0 !important;
 }
 
 .heroContent {
@@ -236,6 +237,244 @@
 
 /* Responsive design */
 @media screen and (max-width: 996px) {
+  /* Fix mobile navbar layout - 3 column layout */
+  :global(.navbar__inner) {
+    max-width: none !important;
+    width: 100% !important;
+    padding: 0 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative !important;
+  }
+  
+  /* Make mobile navbar darker */
+  :global(.navbar) {
+    background: #0b0b0b !important;
+  }
+  
+  /* Fix documentation pages - add spacing below navbar */
+  :global(.main-wrapper) {
+    margin-top: var(--ifm-navbar-height) !important;
+  }
+  
+  /* Fix breadcrumbs positioning on mobile */
+  :global(.breadcrumbs) {
+    margin-top: 1rem !important;
+  }
+  
+  /* Ensure documentation content is below navbar */
+  :global(.theme-doc-wrapper) {
+    padding-top: 0.5rem !important;
+  }
+  
+  /* Remove all padding on h1 elements */
+  :global(.markdown h1) {
+    padding: 0 !important;
+    margin-top: 1rem !important;
+  }
+  
+  /* Remove all padding on markdown content container */
+  :global(.theme-doc-markdown) {
+    padding: 0 !important;
+  }
+  
+  /* Remove padding on first h1 in markdown */
+  :global(.markdown > h1:first-child),
+  :global(.theme-doc-markdown > h1:first-child) {
+    margin-top: 0.5rem !important;
+    padding: 0 !important;
+  }
+  
+  /* Hamburger menu positioning - left side */
+  :global(.navbar__toggle) {
+    display: flex !important;
+    color: inherit !important;
+    background: none !important;
+    border: none !important;
+    padding: 0.5rem !important;
+    order: 1 !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* Center brand/logo - horizontally centered, vertically aligned */
+  :global(.navbar__brand) {
+    position: absolute !important;
+    left: 50% !important;
+    top: 0 !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+    order: 2 !important;
+  }
+  
+  /* Right side items - dark/light mode toggle */
+  :global(.navbar__items--right) {
+    order: 3 !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  /* Hide GitHub icon on mobile navbar (but keep it on desktop) */
+  :global(.navbar__items--right .header-github-link) {
+    display: none !important;
+  }
+  
+  /* Fix dark mode toggle hover effect on mobile - make it circular */
+  :global(.navbar__items--right .navbar__item) {
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  :global(.navbar__items--right button) {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    transition: background-color 0.2s ease !important;
+  }
+  
+  :global(.navbar__items--right button:hover) {
+    background-color: var(--ifm-color-emphasis-200) !important;
+    border-radius: 50% !important;
+  }
+  
+  /* When mobile sidebar is open, center brand in sidebar */
+  :global(.navbar-sidebar--show .navbar__brand) {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    height: auto !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    order: 0 !important;
+  }
+  
+  /* Hide the main navbar brand when sidebar is open */
+  :global(.navbar-sidebar--show .navbar__inner .navbar__brand) {
+    display: none !important;
+  }
+  
+  /* Fix dark mode toggle in mobile sidebar - make it circular and aligned */
+  :global(.navbar-sidebar button[class*="toggle"]) {
+    width: 2rem !important;
+    height: 2rem !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: background-color 0.2s ease !important;
+  }
+  
+  :global(.navbar-sidebar button[class*="toggle"]:hover) {
+    background-color: var(--ifm-color-emphasis-200) !important;
+    border-radius: 50% !important;
+  }
+  
+  /* Align the 'X' close button with the dark mode toggle */
+  :global(.navbar-sidebar .navbar-sidebar__close) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 2rem !important;
+    width: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Keep logo and title together as one unit */
+  :global(.navbar__brand .navbar__logo) {
+    margin-right: 0.5rem !important;
+    margin-left: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  
+  :global(.navbar__brand .navbar__title) {
+    margin: 0 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* Right side items */
+  :global(.navbar__items--right) {
+    grid-column: 3 !important;
+    justify-self: end !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  /* Right side items */
+  :global(.navbar__items--right) {
+    order: 1 !important;
+  }
+  
+  /* Fix mobile sidebar */
+  :global(.navbar-sidebar) {
+    background: var(--ifm-navbar-background-color) !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: var(--ifm-navbar-sidebar-width, 83vw) !important;
+    height: 100vh !important;
+    height: 100dvh !important; /* Dynamic viewport height for mobile */
+    z-index: 9999 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+  
+  :global([data-theme='dark'] .navbar-sidebar) {
+    background: #0b0b0b !important;
+  }
+  
+  :global([data-theme='light'] .navbar-sidebar) {
+    background: #ffffff !important;
+  }
+  
+  /* Ensure sidebar menu items are visible */
+  :global(.navbar-sidebar .menu) {
+    padding: 1rem !important;
+  }
+  
+  :global(.navbar-sidebar .menu__link) {
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem !important;
+    color: var(--ifm-menu-color) !important;
+    display: block !important;
+  }
+  
+  :global(.navbar-sidebar .menu__link:hover) {
+    background: var(--ifm-menu-color-background-hover) !important;
+  }
+  
+  /* Fix homepage navbar transparency issue */
+  :global(body.homepage .navbar-sidebar) {
+    background: var(--ifm-navbar-background-color) !important;
+  }
+  
+  :global([data-theme='dark'] body.homepage .navbar-sidebar) {
+    background: #1a1a1a !important;
+  }
+  
+  :global([data-theme='light'] body.homepage .navbar-sidebar) {
+    background: #ffffff !important;
+  }
+
   .heroBanner {
     padding: 4rem 0;
     min-height: 400px;
