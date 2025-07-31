@@ -223,6 +223,59 @@ article h1:first-child {
     margin-top: 2rem !important;
     padding-top: 0.5rem !important;
   }
+  
+  /* Better mobile navbar spacing */
+  :root {
+    --ifm-navbar-height: 3.75rem;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+  .markdown h1,
+  .markdown h2,
+  .markdown h3,
+  .markdown h4,
+  .markdown h5,
+  .markdown h6 {
+    margin-top: 1rem !important;
+    scroll-margin-top: calc(var(--ifm-navbar-height) + 0.5rem) !important;
+    font-size: 90% !important;
+  }
+  
+  .markdown > h1:first-child,
+  .theme-doc-markdown > h1:first-child,
+  article h1:first-child {
+    margin-top: 1.5rem !important;
+    padding-top: 0.5rem !important;
+  }
+  
+  /* Improve code block readability on small screens */
+  pre code,
+  .prism-code,
+  code[class*="language-"],
+  pre[class*="language-"] {
+    font-size: 0.8rem !important;
+  }
+  
+  /* Better container padding on mobile */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Ensure mobile menu works properly */
+  :global(.navbar-sidebar) {
+    background: var(--ifm-navbar-background-color) !important;
+  }
+  
+  :global([data-theme='dark'] .navbar-sidebar) {
+    background: #1a1a1a !important;
+  }
+  
+  :global([data-theme='light'] .navbar-sidebar) {
+    background: #ffffff !important;
+  }
 }
 
 /* Dark mode code block styling - make code blocks moderately darker */

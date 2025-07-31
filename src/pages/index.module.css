@@ -12,6 +12,96 @@
   transition: all 0.3s ease !important;
 }
 
+/* Fix mobile sidebar functionality */
+:global(.navbar-sidebar) {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: var(--ifm-navbar-sidebar-width, 83vw) !important;
+  height: 100vh !important;
+  z-index: 9999 !important;
+  background: var(--ifm-navbar-background-color) !important;
+  transform: translateX(-100%) !important;
+  transition: transform 0.3s ease !important;
+}
+
+:global(.navbar-sidebar--show .navbar-sidebar) {
+  transform: translateX(0) !important;
+}
+
+:global(.navbar-sidebar__backdrop) {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.6) !important;
+  z-index: 9998 !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}
+
+:global(.navbar-sidebar--show .navbar-sidebar__backdrop) {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure navbar spans full width on mobile */
+@media screen and (max-width: 996px) {
+  :global(.navbar) {
+    width: 100vw !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+  
+  :global(.navbar__inner) {
+    max-width: none !important;
+    width: 100% !important;
+    padding: 0 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  
+  /* Move hamburger to the left side */
+  :global(.navbar__brand) {
+    order: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  :global(.navbar__items--right) {
+    order: 1 !important;
+  }
+  
+  /* Fix mobile menu toggle button */
+  :global(.navbar__toggle) {
+    display: flex !important;
+    color: inherit !important;
+    background: none !important;
+    border: none !important;
+    padding: 0.5rem !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    order: -1 !important;
+  }
+  
+  /* Ensure mobile sidebar items are properly styled */
+  :global(.navbar-sidebar__items) {
+    padding: 1rem !important;
+  }
+  
+  :global(.navbar-sidebar__item) {
+    padding: 0.5rem 0 !important;
+  }
+  
+  :global(.menu__link) {
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem !important;
+  }
+}
+
 /* Default navbar for all pages - dark mode */
 :global([data-theme='dark'] .navbar) {
   background: #1a1a1a !important;
@@ -56,6 +146,7 @@
   min-height: 600px;
   display: flex;
   align-items: center;
+  margin-top: var(--ifm-navbar-height, 60px);
 }
 
 .heroContent {
@@ -79,7 +170,7 @@
   font-size: 1.25rem;
   font-weight: 400;
   margin-bottom: 2rem;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .buttons {
@@ -237,8 +328,9 @@
 /* Responsive design */
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 4rem 0;
+    padding: 4rem 1rem;
     min-height: 400px;
+    margin-top: var(--ifm-navbar-height, 60px);
   }
   
   .heroBanner .hero__title {
@@ -269,34 +361,97 @@
 
 @media screen and (max-width: 768px) {
   .heroBanner {
-    padding: 3rem 0;
+    padding: 2rem 1rem;
     min-height: 350px;
+    margin-top: var(--ifm-navbar-height, 60px);
+    padding-top: calc(var(--ifm-navbar-height, 60px) + 2rem);
   }
   
   .heroBanner .hero__title {
     font-size: 2rem;
+    line-height: 1.2;
   }
   
   .heroBanner .hero__subtitle {
     font-size: 1rem;
+    white-space: normal;
+    word-wrap: break-word;
   }
   
   .buttons {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
+    margin-top: 2rem;
   }
   
-  .buttons .button {
+  .customButton {
     width: 100%;
     max-width: 280px;
+    padding: 16px 32px;
+    font-size: 15px;
+    min-width: auto;
   }
   
   .quickLinks {
-    padding: 2rem 0;
+    padding: 2rem 1rem;
   }
   
   .communitySection {
-    padding: 2rem 0;
+    padding: 2rem 1rem;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+  .heroBanner {
+    padding: 1.5rem 0.5rem;
+    min-height: 300px;
+    margin-top: var(--ifm-navbar-height, 60px);
+    padding-top: calc(var(--ifm-navbar-height, 60px) + 1.5rem);
+  }
+  
+  .heroBanner .hero__title {
+    font-size: 1.75rem;
+    line-height: 1.1;
+  }
+  
+  .heroBanner .hero__subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .customButton {
+    padding: 14px 24px;
+    font-size: 14px;
+    max-width: 240px;
+  }
+  
+  .featuresSection {
+    padding: 3rem 0.5rem;
+  }
+  
+  .quickLinks {
+    padding: 3rem 0.5rem;
+  }
+  
+  .communitySection {
+    padding: 3rem 0.5rem;
+  }
+  
+  .featureCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .quickLinkCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .sectionHeader h2 {
+    font-size: 1.5rem;
+  }
+  
+  .sectionHeader p {
+    font-size: 1rem;
   }
 }
 

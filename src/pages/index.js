@@ -53,8 +53,8 @@ function FeaturesSection() {
       gradient: 'from-green-500 to-teal-600'
     },
     {
-      title: 'Developer APIs',
-      description: 'Build on Cardano with our comprehensive APIs, SDKs, and developer tools.',
+      title: 'Experienced Cardano Profressionals',
+      description: 'Benefit from a team of dedicated Cardano professionals with years of hands-on experience managing reliable, secure, and high-performing pools.',
       icon: '⚡',
       gradient: 'from-orange-500 to-red-600'
     },
@@ -97,14 +97,14 @@ function QuickLinks() {
       icon: '⚙️',
     },
     {
-      title: 'API Documentation',
-      description: 'Comprehensive REST and GraphQL API documentation for developers.',
+      title: 'To add',
+      description: 'To add',
       to: '/docs/getting-started',
       icon: '📚',
     },
     {
-      title: 'Community',
-      description: 'Join our Discord community and connect with other Cardano developers.',
+      title: 'To add',
+      description: 'To add',
       to: '/docs/getting-started',
       icon: '👥',
     },

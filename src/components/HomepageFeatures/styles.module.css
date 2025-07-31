@@ -9,3 +9,26 @@
   height: 200px;
   width: 200px;
 }
+
+/* Mobile responsiveness for feature SVGs */
+@media screen and (max-width: 768px) {
+  .featureSvg {
+    height: 150px;
+    width: 150px;
+  }
+  
+  .features {
+    padding: 1.5rem 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .featureSvg {
+    height: 120px;
+    width: 120px;
+  }
+  
+  .features {
+    padding: 1rem 0;
+  }
+}
