@@ -320,6 +320,11 @@
     align-items: center !important;
   }
   
+  /* Hide GitHub icon on mobile navbar (but keep it on desktop) */
+  :global(.navbar__items--right .header-github-link) {
+    display: none !important;
+  }
+  
   /* Fix dark mode toggle hover effect on mobile - make it circular */
   :global(.navbar__items--right .navbar__item) {
     display: flex !important;
@@ -362,6 +367,35 @@
   /* Hide the main navbar brand when sidebar is open */
   :global(.navbar-sidebar--show .navbar__inner .navbar__brand) {
     display: none !important;
+  }
+  
+  /* Fix dark mode toggle in mobile sidebar - make it circular and aligned */
+  :global(.navbar-sidebar button[class*="toggle"]) {
+    width: 2rem !important;
+    height: 2rem !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: background-color 0.2s ease !important;
+  }
+  
+  :global(.navbar-sidebar button[class*="toggle"]:hover) {
+    background-color: var(--ifm-color-emphasis-200) !important;
+    border-radius: 50% !important;
+  }
+  
+  /* Align the 'X' close button with the dark mode toggle */
+  :global(.navbar-sidebar .navbar-sidebar__close) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 2rem !important;
+    width: 2rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
   /* Keep logo and title together as one unit */
