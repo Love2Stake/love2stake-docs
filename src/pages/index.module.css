@@ -56,7 +56,7 @@
   min-height: 600px;
   display: flex;
   align-items: center;
-  margin-top: var(--ifm-navbar-height) !important;
+  margin-top: 0 !important;
 }
 
 .heroContent {
