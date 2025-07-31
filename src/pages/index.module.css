@@ -41,8 +41,8 @@
 
 /* Global dark mode styling for documentation pages */
 :global([data-theme='dark']) {
-  --ifm-background-color: #080808 !important;
-  --ifm-background-surface-color: #080808 !important;
+  --ifm-background-color: #0b0b0b !important;
+  --ifm-background-surface-color: #0b0b0b !important;
 }
 
 
@@ -201,7 +201,7 @@
 
 
 [data-theme='dark'] .communitySection {
-  background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 50%, #080808 100%);
+  background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 50%, #0b0b0b 100%);
   /* Remove border for seamless gradient transition */
   border-top: none;
 }

@@ -14,7 +14,7 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 1px solid var(--ifm-color-emphasis-300);
+  border: 1px solid #2a2a2a;
   /* Disable text selection */
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -116,27 +116,27 @@
 
 /* Dark theme - Terminal-like appearance */
 [data-theme='dark'] .terminalWindow {
-  background: #0d1117;
-  border-color: #30363d;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  background: #1a1a1a;
+  border-color: #2a2a2a;
+  box-shadow: 0 0 20px rgba(45, 122, 79, 0.15), 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme='dark'] .terminalHeader {
-  background: #161b22;
-  border-bottom-color: #30363d;
+  background: #151515;
+  border-bottom-color: #2a2a2a;
 }
 
 [data-theme='dark'] .terminalBody {
-  background: #0d1117;
-  color: #f0f6fc;
+  background: #1a1a1a;
+  color: #e2e8f0;
 }
 
 [data-theme='dark'] .terminalTitleBar {
-  color: #7d8590;
+  color: #94a3b8;
 }
 
 [data-theme='dark'] .terminalText {
-  color: #e6edf3;
+  color: #e2e8f0;
 }
 
 [data-theme='dark'] .promptLine {
@@ -168,7 +168,7 @@
 [data-theme='light'] .terminalWindow {
   background: #ffffff;
   border-color: #d0d7de;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(45, 122, 79, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 [data-theme='light'] .terminalHeader {
