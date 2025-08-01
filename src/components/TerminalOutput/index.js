@@ -63,7 +63,7 @@ const TerminalOutput = ({ children, content, title }) => {
   const lines = (terminalContent || '').split('\n').filter(line => line.trim() || terminalContent.includes('\n\n'));
   
   return (
-    <div className={styles.terminalContainer}>
+    <div className={`${styles.terminalContainer} terminal-no-shadow`}>
       {title && <div className={styles.terminalTitle}>{title}</div>}
       <div className={styles.terminalWindow}>
         <div className={styles.terminalHeader}>

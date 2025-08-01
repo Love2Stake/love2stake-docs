@@ -277,3 +277,43 @@ article h1:first-child {
 [data-theme='light'] .theme-code-block {
   box-shadow: 0 0 20px rgba(45, 122, 79, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05) !important;
 }
+
+/* Remove shadow/glow from code blocks inside TerminalOutput component */
+[data-theme='light'] .terminal-no-shadow pre,
+[data-theme='light'] .terminal-no-shadow .prism-code,
+[data-theme='light'] .terminal-no-shadow div[class*="codeBlockContainer"],
+[data-theme='light'] .terminal-no-shadow div[class*="codeBlock"],
+[data-theme='light'] .terminal-no-shadow .theme-code-block {
+  box-shadow: none !important;
+  border: 1px solid #d0d7de !important;
+}
+
+/* Remove border from individual code elements inside terminal code blocks */
+[data-theme='light'] .terminal-no-shadow pre code,
+[data-theme='light'] .terminal-no-shadow .prism-code code,
+[data-theme='light'] .terminal-no-shadow div[class*="codeBlockContainer"] code,
+[data-theme='light'] .terminal-no-shadow div[class*="codeBlock"] code,
+[data-theme='light'] .terminal-no-shadow .theme-code-block code,
+[data-theme='light'] .terminal-no-shadow code {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Dark mode - Remove shadow/glow and add terminal border to code blocks inside TerminalOutput */
+[data-theme='dark'] .terminal-no-shadow pre,
+[data-theme='dark'] .terminal-no-shadow .prism-code,
+[data-theme='dark'] .terminal-no-shadow div[class*="codeBlockContainer"],
+[data-theme='dark'] .terminal-no-shadow div[class*="codeBlock"],
+[data-theme='dark'] .terminal-no-shadow .theme-code-block {
+  border: 1px solid #2a2a2a !important;
+}
+
+/* Remove border from individual code elements inside terminal code blocks */
+[data-theme='dark'] .terminal-no-shadow pre code,
+[data-theme='dark'] .terminal-no-shadow .prism-code code,
+[data-theme='dark'] .terminal-no-shadow div[class*="codeBlockContainer"] code,
+[data-theme='dark'] .terminal-no-shadow div[class*="codeBlock"] code,
+[data-theme='dark'] .terminal-no-shadow .theme-code-block code,
+[data-theme='dark'] .terminal-no-shadow code {
+  border: none !important;
+}

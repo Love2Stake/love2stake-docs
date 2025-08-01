@@ -238,3 +238,29 @@
 [data-theme='light'] .maximizeBtn {
   background: #28ca42;
 }
+
+/* Override global code block shadow/glow for terminal output in light mode */
+[data-theme='light'] .terminalContainer pre,
+[data-theme='light'] .terminalContainer code,
+[data-theme='light'] .terminalContainer .prism-code,
+[data-theme='light'] .terminalContainer div[class*="codeBlockContainer"],
+[data-theme='light'] .terminalContainer div[class*="codeBlock"],
+[data-theme='light'] .terminalContainer .theme-code-block {
+  box-shadow: none !important;
+}
+
+/* More specific overrides to ensure no shadow on code blocks within terminal */
+[data-theme='light'] .terminalContainer .terminalBody pre,
+[data-theme='light'] .terminalContainer .terminalBody code,
+[data-theme='light'] .terminalContainer .terminalBody .prism-code,
+[data-theme='light'] .terminalContainer .terminalBody div[class*="codeBlockContainer"],
+[data-theme='light'] .terminalContainer .terminalBody div[class*="codeBlock"],
+[data-theme='light'] .terminalContainer .terminalBody .theme-code-block,
+[data-theme='light'] .terminalWindow pre,
+[data-theme='light'] .terminalWindow code,
+[data-theme='light'] .terminalWindow .prism-code,
+[data-theme='light'] .terminalWindow div[class*="codeBlockContainer"],
+[data-theme='light'] .terminalWindow div[class*="codeBlock"],
+[data-theme='light'] .terminalWindow .theme-code-block {
+  box-shadow: none !important;
+}
