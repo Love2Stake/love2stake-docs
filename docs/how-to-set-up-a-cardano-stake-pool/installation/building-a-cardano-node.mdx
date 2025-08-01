@@ -3,7 +3,7 @@ import OutputDisplay from '@site/src/components/OutputDisplay';
 
 # Building a Cardano Node
 
-This guide will explain how to build a Cardano Node using the <a href="github.com/Love2Stake/love2automate-ada">Love2Automate</a> tool and should be followed after completing an installation of Ubuntu Server 22.04+.>
+This guide will explain how to build a Cardano Node using the <a href="github.com/Love2Stake/love2automate-ada">Love2Automate</a> tool and should be followed after completing an installation of Ubuntu Server 22.04+.
 
 ### 1. Installing Love2Automate
 This will download the latest release of Love2Automate from the <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate repository</a> and ensure it becomes an executable:
@@ -30,9 +30,8 @@ rm "$ASSET_NAME"
 # Make the binary executable
 chmod +x love2automate-ada
 
-# Make Love2Automate globally accessible
-mv love2automate-ada /usr/local/bin/    # Sudo is required
-```
+# Move Love2Automate so it is globally available
+sudo mv love2automate-ada /usr/local/bin # Requires sudo
 
 
 ### 2. Installing Dependencies with Love2Automate
@@ -46,7 +45,7 @@ love2automate-ada --setup-deps
 The end of your terminal output for this command should look something like this. Ensure that the ```source ~/.bashrc``` is executed or restart your terminal as it will immediately apply environment variable changes to the current terminal.
 
 <TerminalOutput 
-  content={`user@hostname:~/directory$ ./love2automate-ada --setup-deps
+  content={`user@hostname:~/directory$ love2automate-ada --setup-deps
 ✓ Dependencies setup completed successfully!
 
 ⚠️  IMPORTANT: You MUST restart your terminal or run 'source ~/.bashrc' for PATH changes to take effect.
