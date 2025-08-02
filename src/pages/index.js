@@ -18,7 +18,7 @@ function HomepageHeader() {
           Love2Stake
         </Heading>
         <p className="hero__subtitle">
-          0% Fee Cardano Stake Pool · Powered by Love2 Automate
+          0% Fee Cardano Stake Pool · Powered by Love2Automate
         </p>
         <div className={styles.buttons}>
           <Link
