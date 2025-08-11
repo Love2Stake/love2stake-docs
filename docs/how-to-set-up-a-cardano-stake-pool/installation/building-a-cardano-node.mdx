@@ -9,13 +9,13 @@ This guide will explain how to build a Cardano Node using the <a href="github.co
 This will download the latest release of Love2Automate from the <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate repository</a> and ensure it becomes an executable:
 
 ```bash
-# Get the latest release tag from GitHub
-TAG=$(curl -s https://api.github.com/repos/Love2Stake/love2automate-ada/releases/latest | grep -oP '"tag_name": "\K[^"]+')
+# Get latest tag with wget + grep (no curl)
+TAG=$(wget -qO- https://api.github.com/repos/Love2Stake/love2automate-ada/releases/latest | grep -oP '"tag_name": "\K[^"]+')
 
 # Define the asset name
 ASSET_NAME="love2automate-ada-linux-x64.tar.gz"
 
-# Download the .tar.gz release asset
+# Download asset with wget using tag and asset name
 wget -O "$ASSET_NAME" "https://github.com/Love2Stake/love2automate-ada/releases/download/$TAG/$ASSET_NAME"
 
 # Verify the downloaded file
@@ -31,7 +31,7 @@ rm "$ASSET_NAME"
 chmod +x love2automate-ada
 
 # Move Love2Automate so it is globally available
-sudo mv love2automate-ada /usr/local/bin # Requires sudo
+sudo mv love2automate-ada /usr/local/bin
 ```
 <br />
 
