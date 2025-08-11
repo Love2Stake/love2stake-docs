@@ -34,8 +34,18 @@ chmod +x love2automate-ada
 sudo mv love2automate-ada /usr/local/bin # Requires sudo
 ```
 <br />
-The end of your terminal output for this command should look something like this. Ensure that the ```source ~/.bashrc``` is executed or restart your terminal as it will immediately apply environment variable changes to the current terminal.
 
+
+### 2. Setting up Love2Automate's Dependencies
+
+The following command with install all of the required dependencies for the functions of Love2Automate:
+
+```bash
+love2automate-ada --setup-deps
+```
+<br />
+
+The end of your terminal output for this command should look something like this. Ensure that the ```source ~/.bashrc``` is executed or restart your terminal as it will immediately apply environment variable changes to the current terminal.
 <TerminalOutput 
   content={`user@hostname:~/directory$ love2automate-ada --setup-deps
 ✓ Dependencies setup completed successfully!
@@ -49,7 +59,7 @@ Next steps:
 />
 <br />
 
-### 2. Installing Ansible Playbooks for Love2Automate
+### 3. Installing Ansible Playbooks for Love2Automate
 This command will pull all Ansible playbooks from the <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate GitHub repository</a> and store them in ```/opt/love2automate-ada/```.
 ```bash
 # sudo is REQUIRED for this command
@@ -57,7 +67,7 @@ sudo love2automate-ada --setup
 ```
 <br />
 
-### 3. Installing the Cardano Node with Love2Automate
+### 4. Installing the Cardano Node with Love2Automate
 
 The following command will run a list of Ansible notebook which will install the required dependencies and the Cardano Node using the Ansible playbooks that were pulled from the <a href="https://github.com/Love2Stake/love2automate-ada">repository</a>, further documentation can be found <a href="">here</a>
 
