@@ -35,7 +35,15 @@ sudo mv love2automate-ada /usr/local/bin # Requires sudo
 ```
 <br />
 
-### 2. Installing Dependencies with Love2Automate
+### 2. Installing Ansible Playbooks for Love2Automate
+This command will pull all Ansible playbooks from the <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate GitHub repository</a> and store them in ```/opt/love2automate-ada/```.
+```bash
+# sudo is REQUIRED for this command
+sudo love2automate-ada --setup
+```
+<br />
+
+### 3. Installing Dependencies with Love2Automate
 
 The following command will updating the package index, install ```pip3``` and ```pipx```, set environment variables, install Ansible, and then install the required Ansible collections. These dependencies are required to run other commands in this program.
 
@@ -56,14 +64,6 @@ Next steps:
 2. Run: love2automate-ada --setup
 3. Run: love2automate-ada --install cardano-node`}
 />
-<br />
-
-### 2. Installing Ansible Playbooks for Love2Automate
-This command will pull all Ansible playbooks from the <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate GitHub repository</a> and store them in ```/opt/love2automate-ada/```.
-```bash
-# sudo is REQUIRED for this command
-sudo love2automate-ada --setup
-```
 <br />
 
 ### 3. Installing the Cardano Node with Love2Automate
