@@ -16,8 +16,5 @@ The <i>How to Set Up a Cardano Stake Pool</i> guide aims to provide a thorough, 
 
 The following parts can be found in the guide:
 - <a href="/docs/how-to-set-up-a-cardano-stake-pool/installation">Installation</a> will show you how to create a secure environment for hosting your cardano stake pool and how to install Love2Automate to streamline the installation process.
-- #TODO
-- #TODO
-- #TODO
 
 <DisclaimerTemplates.StakePool/>
