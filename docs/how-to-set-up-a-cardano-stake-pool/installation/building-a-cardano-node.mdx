@@ -45,13 +45,15 @@ sudo love2automate-ada --setup
 
 ### 3. Installing Dependencies with Love2Automate
 
-The following command will updating the package index, install ```pip3``` and ```pipx```, set environment variables, install Ansible, and then install the required Ansible collections. These dependencies are required to run other commands in this program.
+The following command will updating the package index, install ```pip3``` and ```pipx```, set environment variables, install Ansible, and then install the required Ansible collections.
+These dependencies are required to run other commands in this program.
 
 ```bash
 love2automate-ada --setup-deps
 ```
 <br />
-The end of your terminal output for this command should look something like this. Ensure that the ```source ~/.bashrc``` is executed or restart your terminal as it will immediately apply environment variable changes to the current terminal.
+The end of your terminal output for this command should look something like this. Ensure that the ```source ~/.bashrc``` is executed
+or restart your terminal as it will immediately apply environment variable changes to the current terminal.
 
 <TerminalOutput 
   content={`user@hostname:~/directory$ love2automate-ada --setup-deps
@@ -68,7 +70,10 @@ Next steps:
 
 ### 4. Installing the Cardano Node with Love2Automate
 
-The following command will run a list of Ansible notebook which will install the required dependencies and the Cardano Node using the Ansible playbooks that were pulled from the <a href="https://github.com/Love2Stake/love2automate-ada">repository</a>, further documentation can be found <a href="">here</a>
+The following command will run a list of Ansible notebook which will install the required dependencies and the Cardano Node 
+using the Ansible playbooks that were pulled from the <a href="https://github.com/Love2Stake/love2automate-ada">repository</a>,
+further documentation can be found <a href="">here</a>.
+
 
 ```bash
 love2automate-ada --install cardano-node
