@@ -1,5 +1,7 @@
 import TerminalOutput from '@site/src/components/TerminalOutput';
 import OutputDisplay from '@site/src/components/OutputDisplay';
+import { DisclaimerTemplates } from '@site/src/components/DisclaimerTemplates';
+import Disclaimer from '@site/src/components/Disclaimer';
 
 # Building a Cardano Node
 
@@ -70,10 +72,13 @@ Next steps:
 
 ### 4. Installing the Cardano Node with Love2Automate
 
+<Disclaimer type="information">
+**NOTE: Cardano nodes installed and built using this command are created on the latest version and configured to port 6000**
+</ Disclaimer>
+
 The following command will run a list of Ansible notebook which will install the required dependencies and the Cardano Node 
 using the Ansible playbooks that were pulled from the <a href="https://github.com/Love2Stake/love2automate-ada">repository</a>,
 further documentation can be found <a href="">here</a>.
-
 
 ```bash
 love2automate-ada --install cardano-node
