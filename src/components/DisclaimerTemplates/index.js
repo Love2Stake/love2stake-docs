@@ -15,14 +15,15 @@ export function StakePoolDisclaimer() {
       <code style={{
         display: 'block',
         padding: '8px 12px',
-        backgroundColor: 'var(--ifm-color-emphasis-100)',
-        border: '1px solid var(--ifm-color-emphasis-300)',
-        borderRadius: '4px',
-        fontFamily: 'monospace',
-        fontSize: '14px',
+        backgroundColor: 'var(--ifm-code-background)',
+        border: '1px solid var(--ifm-code-border-color)',
+        borderRadius: 'var(--ifm-code-border-radius)',
+        fontFamily: 'var(--ifm-font-family-monospace)',
+        fontSize: 'var(--ifm-code-font-size)',
         wordBreak: 'break-all',
         userSelect: 'all',
-        cursor: 'text'
+        cursor: 'text',
+        color: 'var(--ifm-code-color)'
       }}>
         addr1qy2jswg2xfca87h79050dzgj0yup69u9gpclwn9jl2g5tlfvaj6kvenchu5gwxlfhffysxsnekq6kh4z7yq758w2x3gq7xc7sn
       </code>

@@ -31,6 +31,36 @@
   flex: 1;
 }
 
+/* Make code inside disclaimers look consistent across themes */
+.disclaimerContent code {
+  display: block;
+  padding: 8px 12px;
+  background-color: var(--ifm-code-background) !important;
+  border: 1px solid var(--ifm-code-border-color) !important;
+  border-radius: var(--ifm-code-border-radius);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: var(--ifm-code-font-size);
+  color: var(--ifm-code-color) !important;
+  word-break: break-all;
+  user-select: all;
+  cursor: text;
+  box-shadow: none !important;
+}
+
+/* In dark mode, keep the same layout as light mode but use dark-friendly colors */
+[data-theme='dark'] .disclaimerContent code {
+  /* Dark palette (only colors change) */
+  --ifm-code-background: #2d3748; /* slate-700 */
+  --ifm-code-color: #e2e8f0;      /* slate-200 */
+  --ifm-code-border-color: #4a5568; /* slate-600 */
+
+  /* Apply with higher specificity */
+  background-color: var(--ifm-code-background) !important;
+  border: 1px solid var(--ifm-code-border-color) !important;
+  color: var(--ifm-code-color) !important;
+  padding: 8px 12px !important;
+}
+
 .disclaimerContent strong {
   font-weight: 600;
 }
