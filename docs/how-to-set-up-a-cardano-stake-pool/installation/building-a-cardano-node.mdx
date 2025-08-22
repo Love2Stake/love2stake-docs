@@ -8,7 +8,7 @@ import Disclaimer from '@site/src/components/Disclaimer';
 This guide will explain how to build a Cardano Node using the <a href="github.com/Love2Stake/love2automate-ada">Love2Automate</a> tool and should be followed after completing an installation of Ubuntu Server 22.04+.
 
 ### 1. Installing Love2Automate
-This will download the latest release of Love2Automate from the <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate repository</a> and ensure it becomes an executable:
+This will download the latest release of Love2Automate from the <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate repository</a>:
 
 ```bash
 # Get the latest release tag from GitHub
@@ -31,13 +31,19 @@ rm "$ASSET_NAME"
 
 # Make the binary executable
 chmod +x love2automate-ada
+```
+<br />
 
+### 2. Make Love2Automate Globally Accessible
+
+This command moves the Love2Automate binary to `/usr/local/bin` so that it is globally accessible
+```bash
 # Move Love2Automate so it is globally available
 sudo mv love2automate-ada /usr/local/bin # Requires sudo
 ```
 <br />
 
-### 2. Installing Ansible Playbooks for Love2Automate
+### 3. Installing Ansible Playbooks for Love2Automate
 This command will pull all Ansible playbooks from the <a href="https://github.com/Love2Stake/love2automate-ada">Love2Automate GitHub repository</a> and store them in ```/opt/love2automate-ada/```.
 ```bash
 # sudo is REQUIRED for this command
@@ -45,7 +51,7 @@ sudo love2automate-ada --setup
 ```
 <br />
 
-### 3. Installing Dependencies with Love2Automate
+### 4. Installing Dependencies with Love2Automate
 
 The following command will updating the package index, install ```pip3``` and ```pipx```, set environment variables, install Ansible, and then install the required Ansible collections.
 These dependencies are required to run other commands in this program.
@@ -70,7 +76,7 @@ Next steps:
 />
 <br />
 
-### 4. Installing the Cardano Node with Love2Automate
+### 5. Installing the Cardano Node with Love2Automate
 
 <Disclaimer type="information">
 **NOTE: Cardano nodes installed and built using this command are created on the latest version and configured to port 6000**
