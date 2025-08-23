@@ -28,7 +28,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className={styles.customButton}
-            to="/docs/getting-started">
+            to="/docs/how-to-delegate-your-cardano">
             Delegate to LOVE2
           </Link>
         </div>
