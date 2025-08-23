@@ -48,14 +48,14 @@ function FeaturesSection() {
     },
     {
       title: 'Enterprise Security',
-      description: 'Military-grade infrastructure with 24/7 monitoring and automated failover systems.',
+      description: 'Military-grade infrastructure with 24/7 uptime, ensuring consistent rewards with no missed blocks.',
       icon: '🛡️',
       gradient: 'from-green-500 to-teal-600'
     },
     {
-      title: 'Developer APIs',
-      description: 'Build on Cardano with our comprehensive APIs, SDKs, and developer tools.',
-      icon: '⚡',
+      title: 'Community Driven',
+      description: 'Join a transparent, delegator-first pool that reinvests in the Cardano ecosystem and supports decentralisation.',
+      icon: '🌐',
       gradient: 'from-orange-500 to-red-600'
     },
   ];
@@ -65,7 +65,7 @@ function FeaturesSection() {
       <div className="container">
         <div className={styles.sectionHeader}>
           <h2>Why Choose Love2Stake</h2>
-          <p>Built for the future of decentralized finance</p>
+          <p>Built for the future of decentralised finance</p>
         </div>
         <div className={styles.featuresGrid}>
           {features.map((feature, idx) => (

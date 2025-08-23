@@ -56,6 +56,17 @@ const sidebars = {
       ],
     },
     {
+      type: 'category',
+      label: 'How to Delegate Your Cardano',
+      link: {
+        type: 'doc',
+        id: 'how-to-delegate-your-cardano/index',
+      },
+      items: [
+
+      ],
+    },
+    {
       type: 'html',
       value: '<div style="height: 1px; background-color: var(--ifm-color-emphasis-300); margin: 1rem 1rem;"></div>',
     },
